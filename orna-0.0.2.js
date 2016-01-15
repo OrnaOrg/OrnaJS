@@ -184,7 +184,8 @@ $(document).ready(function(){
 createatom();    
 });
 function createatom() {
-		var tag = [ 'div', 'body', 'form', 'p', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu'];
+		var tag = [ 'div', 'body', 'form', 'p', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 
+                   'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset'];
 		for (var i = 0; i !== tag.length; i++) {
 			var tagsize = $(tag[i]).size();
 			toall(tag[i], tagsize);
@@ -198,12 +199,17 @@ function createatom() {
 			}
 			//---------------------------------    
 		function addstyle(current) {
-				var attr = $(current).attr('class').split(' ');
-				for (var i = 0; i !== attr.length; i++) {
-					var part = attr[i].split('_');
+				var attr = $(current).attr('class');
+                var style;
+            //alert(attr);
+            if(attr!==undefined){
+               style=attr.split(' ');
+				for (var i = 0; i !== style.length; i++) {
+					var part = style[i].split('_');
 					$(current).css(part[0], part[1]);
 				}
 			}
+        }
 			//---------------------------------    
 	}
 	//alert("TEST OK!");
