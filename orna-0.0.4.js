@@ -148,7 +148,6 @@ function progressx(id, limit, step, speed) {
 function livetext(words, id, colors) {
 		if (colors === undefined) colors = ['#fff'];
 		var visible = true;
-		var con = document.getElementById('console');
 		var letterCount = 1;
 		var x = 1;
 		var waiting = false;
