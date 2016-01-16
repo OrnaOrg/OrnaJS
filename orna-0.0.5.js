@@ -1,6 +1,7 @@
 //alert("TEST OK!");
 //------------------reverse-background-----------------------------
 //reversebackground('id', 'url1', 'url2');
+//id = #id, .class, tag;
 var backgroundstatus = 0;
 
 function reversebackground(id, url1, url2) {
@@ -15,6 +16,9 @@ function reversebackground(id, url1, url2) {
 		}
 	}
 	//--------------------reverseclass---------------------------
+	//reverseclass('id', 'classname1', 'classname2', listen)
+	//listen = true or false
+	//id = #id, .class, tag;
 var classstatus = 0;
 
 function reverseclass(id, classname1, classname2, listen) {
@@ -38,6 +42,7 @@ function reverseclass(id, classname1, classname2, listen) {
 	}
 	//--------------------------height-adaptive-------------------------------------
 	//heightadaptive('id', screenwidth, heightmain, heightnew)
+	//id = #id, .class, tag;
 function heightadaptive(id, screenwidth, heightmain, heightnew) {
 		setInterval(function() {
 			if (screen.width < screenwidth || document.body.clientWidth < screenwidth) {
@@ -80,68 +85,89 @@ function titletimer() {
 	}
 	//--------------------------time-in-field-------------------------------------
 	//time('id');
+	//id = #id, .class, tag;
 function time(id) {
 		setInterval(function() {
 			var now = new Date();
 			var sec = now.getSeconds();
 			var min = now.getMinutes();
 			var hr = now.getHours();
-			var field = document.getElementById(id);
+			var field = $(id);
 			if (field) {
-				document.getElementById(id).value = hr + ":" + min + ":" + sec;
+				field.val(hr + ":" + min + ":" + sec);
 			}
 		}, 1000);
 	}
 	//-----------------------------progress-y----------------------------------------------
 	//progressy('id', limit, step, speed);
+	//id = #id, .class, tag;
+var yon = false;
+
 function progressy(id, limit, step, speed) {
-		createatom();
-		var risebar = $(id);
-		var currentheight = risebar.height();
-		var i = 0;
-		var moveup = setInterval(function() {
-			if (risebar) {
-				i += step;
-				risebar.height(currentheight + i);
-				if (i >= limit) {
-					clearInterval(moveup);
-					var movedown = setInterval(function() {
-						i -= step;
+		if (yon == false) {
+			yon = true;
+
+			function progress(id, limit, step, speed) {
+				createatom();
+				var risebar = $(id);
+				var currentheight = risebar.height();
+				var i = 0;
+				var moveup = setInterval(function() {
+					if (risebar) {
+						i += step;
 						risebar.height(currentheight + i);
-						if (currentheight + i <= currentheight) {
-							clearInterval(movedown);
-							progressy(id, limit, step, speed);
+						if (i >= limit) {
+							clearInterval(moveup);
+							var movedown = setInterval(function() {
+								i -= step;
+								risebar.height(currentheight + i);
+								if (currentheight + i <= currentheight) {
+									clearInterval(movedown);
+									progress(id, limit, step, speed);
+								}
+							}, speed);
 						}
-					}, speed);
-				}
+					}
+				}, speed);
 			}
-		}, speed);
+			progress(id, limit, step, speed);
+		}
 	}
 	//alert("TEST OK!");
 	//-----------------------------progress-x----------------------------------------------
 	//progressx('id', limit, step, speed);
+	//id = #id, .class, tag;
+var xon = false;
+
 function progressx(id, limit, step, speed) {
-		createatom();
-		var risebar = $(id);
-		var currentwidth = risebar.width();
-		var i = 0;
-		var moveup = setInterval(function() {
-			if (risebar) {
-				i += step;
-				risebar.width(currentwidth + i);
-				if (i >= limit) {
-					clearInterval(moveup);
-					var movedown = setInterval(function() {
-						i -= step;
+		if (xon == false) {
+			xon = true;
+
+			function progress(id, limit, step, speed) {
+				createatom();
+				var risebar = $(id);
+				var currentwidth = risebar.width();
+				var i = 0;
+				var moveup = setInterval(function() {
+					if (risebar) {
+						i += step;
 						risebar.width(currentwidth + i);
-						if (currentwidth + i <= currentwidth) {
-							clearInterval(movedown);
-							progressx(id, limit, step, speed);
+						if (i >= limit) {
+							clearInterval(moveup);
+							var movedown = setInterval(function() {
+								i -= step;
+								risebar.width(currentwidth + i);
+								if (currentwidth + i <= currentwidth) {
+									clearInterval(movedown);
+									progress(id, limit, step, speed);
+								}
+							}, speed);
 						}
-					}, speed);
-				}
+					}
+				}, speed);
 			}
-		}, speed);
+			progress(id, limit, step, speed);
+		}
 	}
 	//-----------------------livetext------------------------
 	//livetext(['Hello World.', 'Live Text', 'Made with Love.'],'livetext',['tomato','rebeccapurple','lightblue']);
@@ -187,7 +213,7 @@ $(document).ready(function() {
 });
 
 function createatom() {
-		var tag = ['div', 'body', 'form', 'p', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset'];
+		var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer'];
 		for (var i = 0; i !== tag.length; i++) {
 			var tagsize = $(tag[i]).size();
 			toall(tag[i], tagsize);
@@ -195,8 +221,13 @@ function createatom() {
 		//------------------------------------  
 		function toall(tag, tagsize) {
 				for (var i = 0; i !== tagsize; i++) {
+                    var istag =$(tag).is(tag);
+                    alert(istag);
+                    if(istag==true){
 					var current = tag + ":eq(" + i + ")";
 					addstyle(current);
+                    }
+                  
 				}
 			}
 			//---------------------------------    
