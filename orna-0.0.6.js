@@ -222,7 +222,7 @@ function createatom() {
 		function toall(tag, tagsize) {
 				for (var i = 0; i !== tagsize; i++) {
                     var istag =$(tag).is(tag);
-                    alert(istag);
+                    //alert(istag);
                     if(istag==true){
 					var current = tag + ":eq(" + i + ")";
 					addstyle(current);
