@@ -359,6 +359,13 @@ function createatom() {
                                 extrastyle(part);
                             
                             
+                        } else if (part[0] == "Times"||part[0] == "TimesNewRoman") {
+                
+                                part[0] = 'font-family';
+                                part[1]= '"Times New Roman", serif';
+                                extrastyle(part);
+                            
+                            
                         }
                         else if (part[0] == "center") {
                 
