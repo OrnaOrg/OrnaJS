@@ -213,7 +213,7 @@ $(document).ready(function() {
 });
 
 function createatom() {
-		var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer'];
+		var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code'];
 		for (var i = 0; i !== tag.length; i++) {
 			var tagsize = $(tag[i]).size();
 			toall(tag[i], tagsize);
@@ -239,7 +239,21 @@ function createatom() {
 					style = attr.split(' ');
 					for (var i = 0; i !== style.length; i++) {
 						var part = style[i].split('_');
+                        //alert(part);
+                      var prop=part[0];
+                        var val=part[1];
+                        if(part[0]=="hideatom")
+                        {
+                         break;   
+                        }
+                        if(val!==undefined){
+                            //alert('atom class');
 						$(current).css(part[0], part[1]);
+                        }
+                        else
+                        {
+                            //alert('other class');
+                        }
 					}
 				}
 			}
