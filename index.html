@@ -7,7 +7,7 @@
     <script src="jquery-1.12.0.js"></script>
     <script src="orna-0.0.7.js"></script>
 </head>
-<body class="min-width_500px background_rgb(240,240,240)">
+<body class="min-width_500px background_rgb(220,220,220)">
 
    <div class="background_white">
        <div class="width_50% max-width_700px margin_auto padding_20px margin-bottom_8px">
@@ -15,8 +15,8 @@
     </div>
     </div>
 
-    <div class="width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto transform_rotate(4deg) shadow-color_black shadow-blur_10px">
-    <div class="background_rgba(255,255,255,0.5) padding_20px shadow">
+    <div class="width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto rotate_4deg">
+    <div class="bg_rgba(255,255,255,0.5) padding_20px shadow">
     <h3>What is Orna?</h3>
     Orna is a good tool, designed for atomize Web UI.
     <br>
@@ -27,8 +27,8 @@
     </div>
        <br>
        <br>
-        <div class="width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto transform_rotate(-4deg)">
-    <div class="background_rgba(255,255,255,0.5) padding_20px shadow">
+        <div class="width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto rotate_-4deg">
+    <div class="bg_rgba(255,255,255,0.5) padding_20px shadow">
     <h3>What Orna do?</h3>
 
    If you plug orna.js into html document you will have a new skill that give you write css properties with values in class attribute and it will means class and property in one and call it atom. In orna.css you find classes with few properties and that calls molecules. Molecules make your work easy when you the properties have many value. Molecules give it like pack.
@@ -37,8 +37,8 @@
             </div></div>
              <br>
        <br>
-        <div class="width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto transform_rotate(4deg)">
-    <div class="background_rgba(255,255,255,0.5) padding_20px shadow">
+        <div class="width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto rotate_4deg">
+    <div class="bg_rgba(255,255,255,0.5) padding_20px shadow">
     <h3>How Orna works?</h3>
 
   Just write css properties in class attribute then write underscore and value
@@ -47,17 +47,50 @@ Use orna.css classes (molecules) if you need. Event in orna create with jQuery a
             </div></div>
              <br>
        <br>
-        <div class="hideatom width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto transform_rotate(-4deg)">
-    <div class="background_rgba(255,255,255,0.5) padding_20px shadow">
-    <h3>Examples</h3>
+        <div>
+    <div class="bg_white padding_10px height_1000px text-align_center">
+    <h2>Examples</h2>
 
-
+<br>
     <code class="block height_100px color_black">
-<span >Write css properties like classes</span><br>
-    <span class="background_white">  class="background-color_black width_50% height_100px"</span><br>
-      <span>Use Orna and jQuery functions to listen the event</span><br>
+<span class="font-size_20px arial">CSS properties like classes</span><br><br>
+    <span class="font-size_15px background_#F9a8be color_black">  class="background-color_black width_50% height_100px margin_5 padding_4 border_4px_solid_red"</span><br><br><br><br>
+                    <span class="font-size_20px arial">Abbreviated name (You can use right or left name)</span><br><br>
 
-  <span class="background_white">  onclick="reverseclass('#id', 'class1','class2', true);"</span></code>
+                <div class="center  height_100px width_360px">
+
+         <div class="float_left bg_#F9a8be padding_5px font-size_15px margin-left_16px">background_white<br>
+         background-color_white<br>
+        transform_rotate(60deg)</div>
+         <div class="float_left bg_white padding_5px font-size_15px">=<br>
+         =<br>
+         =</div>
+         <div class="float_left bg_lightblue padding_5px font-size_15px">bg_white<br>
+         bgc_white<br>
+         rotate_60deg</div>
+
+     </div>
+     
+      <br>
+    
+      <span class="font-size_20px arial">OrnaJS functions</span><br><br>
+
+<div class="text-align_left">
+  <ol class="margin_auto width_400px">
+ <li>reversebackground('id', 'url1', 'url2');</li><br><br>
+  <li>reverseclass('id', 'classname1', 'classname2', listen);</li><br><br>
+  <li>widthadaptive('id', screenwidth, widthmain, widthnew);</li><br><br>
+  <li>heightadaptive('id', screenwidth, heightmain, heightnew);</li><br><br>
+  <li>titletimer();</li><br><br>
+   <li>time('id');</li><br><br>
+   <li>progressy('id', limit, step, speed);</li><br><br>
+   <li>progressx('id', limit, step, speed);</li><br><br>
+    <li>livetext(['Hello World.', 'Live Text', 'Made with Love.'],'livetext',['tomato','rebeccapurple','lightblue']);</li><br><br>
+    <li>createatom();</li><br><br>
+
+</ol>
+  </div>
+  </code>
 
 
             </div></div>
