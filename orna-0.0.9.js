@@ -266,11 +266,18 @@ function createatom() {
                                 //alert(part[0]+part[1]);
                             }
 
-                        } else if (part[0] == "box-shadow") {
+                        } else if (part[0] == "box-shadow"||part[0] == "shadow") {
                             if (val !== undefined) {
+                                 if(part[2]==undefined||part[3]==undefined)
+                                {
+                                    
+                                    alert("Hi! I'm Orna! Atomic class shadow or box-shadow need five value: shadow_0_0_20px_10px_black"); 
+                                    
+                                }
+                                part[0]="box-shadow";
                                 part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4] + ' ' + part[5];
                                 addstyle(part, val);
-                                alert(part[1]);
+                                //alert(part[1]);
                             }
                         } else if (part[0] == "text-shadow") {
                             if (val !== undefined) {
@@ -280,12 +287,24 @@ function createatom() {
                             }
                         } else if (part[0] == "border") {
                             if (val !== undefined) {
+                                if(part[2]==undefined||part[3]==undefined)
+                                {
+                                    
+                                    alert("Hi! I'm Orna! Atomic class border need three value width, color and style"); 
+                                    
+                                }
                                 part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
                                 addstyle(part, val);
                                 //alert(part[1]);
                             }
                         } else if (part[0] == "outline") {
                             if (val !== undefined) {
+                                   if(part[2]==undefined||part[3]==undefined)
+                                {
+                                    
+                                    alert("Hello! I'm Orna! Atomic class outline need three value: width, color, style"); 
+                                    
+                                }
                                 part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
                                 addstyle(part, val);
                                 //alert(part[1]);
@@ -300,9 +319,32 @@ function createatom() {
                             if (val !== undefined) {
                                 part[0] = 'background-color';
                                 addstyle(part, val);
+                            }}
+                                else if (part[0] == "bgp") {
+                            if (val !== undefined) {
+                                part[0] = 'background-position';
+                                addstyle(part, val);
+                            }
+                            
+                        }     else if (part[0] == "bgr") {
+                            if (val !== undefined) {
+                                part[0] = 'background-repeat';
+                                addstyle(part, val);
+                            }}
+                            else if (part[0] == "bgi") {
+                            if (val !== undefined) {
+                                part[0] = 'background-image';
+                                addstyle(part, val);
                             }
                             
                         } else if (part[0] == "transition") {
+                           
+                                   if(part[2]==undefined||part[3]==undefined||part[4]==undefined)
+                                {
+                                    
+                                    alert("Hello! Atomic class transition need four value, like it: transition_all_0.5s_ease_2s"); 
+                                    
+                                }
                             if (val !== undefined) {
 
                                 part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4];
@@ -310,10 +352,36 @@ function createatom() {
                                 addstyle(part, val);
                             }
                         }
+ else if (part[0] == "Arial"||part[0] == "arial") {
+                
+                                part[0] = 'font-family';
+                                part[1]= 'Arial, sans-serif';
+                                extrastyle(part);
+                            
+                            
+                        }
+                        else if (part[0] == "center") {
+                
+                                part[0] = 'margin';
+                                part[1]= 'auto';
+                                extrastyle(part);
+                            
+                            
+                        } else if (part[0] == "textincenter") {
+                
+                                part[0] = 'text-align';
+                                part[1]= 'center';
+                                extrastyle(part);
+                            
+                            
+                        } 
 
 
-
-                        function addstyle(part, val) {
+                        function extrastyle(part) {
+                            
+                                $(current).css(part[0], part[1]);
+                          
+                        }     function addstyle(part, val) {
                             if (val !== undefined) {
                                 //alert('atom class');
                                 $(current).css(part[0], part[1]);
