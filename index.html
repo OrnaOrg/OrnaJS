@@ -5,22 +5,23 @@
     <meta charset="UTF-8">
     <title>OrnaJS</title>
     <script src="jquery-1.12.0.js"></script>
-    <script src="orna-0.2.0.js"></script>
+    <script src="orna-0.2.2.js"></script>
 </head>
 
 <body class="min-width_500px background-color_white Arial margin_0">
-           <div class="background-color_rgb(220,220,220) bgi_url(atom.png)">
+           <div class="background-color_rgb(220,220,220) bgi_url(img/atom.png)">
 
     <div class="background_white">
-        <div class="width_50% max-width_700px margin_auto padding_20px margin-bottom_8px"> <img src="ornaname.png" class="width_100%"> </div>
+        <div class="width_50% max-width_700px margin_auto padding_20px margin-bottom_8px"> <img src="img/ornaname.png" class="width_100%">
+        <a href="https://github.com/OrnaOrg/OrnaJS"><img src="img/forkline.png" class="width_10% position_fixed top_0 left_90%"></a> </div>
     </div>
     <div class="width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto rotate_4deg">
         <div class="bg_rgba(255,255,255,0.5) padding_20px shadow">
-            <h3 class="Times">What is Orna?</h3> Orna is a good tool, designed for atomize Web UI.
+            <h3 class="Times">What is Orna?</h3> <span class="color_#ee0645">Orna</span> is a good tool, designed for atomize Web UI.
             <br>
-            <br>Atomic CSS - is a model or style of coding where each of properties has own style class.
+            <br><span class="color_black">Atomic CSS</span> is a model or style of coding where each of properties has own style class.
             <br>
-            <br>Atomic CSS is good for fast creating the readable and easy changeable User Interface. </div>
+            <br><span class="color_black">Atomic CSS</span> is good for fast creating the readable and easy changeable User Interface. </div>
     </div>
     <br>
     <br>
@@ -33,8 +34,8 @@
     <div class="width_50% max-width_700px padding_20px background_#F9a8be color_#530218 font-size_20px margin_auto rotate_4deg">
         <div class="bg_rgba(255,255,255,0.5) padding_20px shadow">
             <h3 class="Times">How Orna works?</h3> Just write css properties into the class attribute then write underscore and value.
-            Orna scan the html document, find atoms and define it directly to the element.
-             Event in orna create with jQuery. For event you cen use onclick, onmouseover, onfocus, onblur and other.</div>
+            <span class="color_#ee0645">Orna</span> scan the html document, find atoms and define it directly to the element.
+             Event in orna create with <a href="http://jquery.com" class="text-decoration_none">jQuery</a>. For event you can use onclick, onmouseover, onfocus, onblur and other. Or simply add tail to the class name like: mouseover, mouseout, focus, blur, click. (width_100px_click, property_value_event)</div>
     </div>
     <br>
     <br>
@@ -50,7 +51,7 @@
 
                 <div class="center bg_gray  overflow_hidden max-width_460px">
 
-         <div class="float_left width_240px bg_#F9a8be padding_5px font-size_15px margin-left_14px">
+         <div class="float_left width_240px bg_#F9a8be padding_5px font-size_15px margin-left_15px">
          background_white<br>
          background-color_white<br>
          background-image_url()<br>
@@ -81,25 +82,52 @@
       <br>
       <br>
     
-      <span class="font-size_20px arial">OrnaJS functions</span><br><br>
+      <span class="font-size_20px arial">Special classes</span><br><br>
 
 <div class="text-align_left">
   <ol class="margin_auto width_400px color_#ee0645">
- <li><span class="color_black">reversebackground('id', 'url1', 'url2');</span></li><br><br>
+ <li><span class="color_black">Arial, arial <span class="color_#ee0645">- font</span></span></li><br><br>
+  <li><span class="color_black">Times, TimesNewRoman <span class="color_#ee0645">- font</span></span></li><br><br>
+  <li><span class="color_black">center <span class="color_#ee0645">- block elements in center by x axis</span></span></li><br><br>
+  <li><span class="color_black">textincenter <span class="color_#ee0645">- text and inline elements in center by x axis</span></span></li><br><br>
+  <li><span class="color_black">hideatom <span class="color_#ee0645">- use for hide element from Orna, must be first in class attribute</span></span></li><br><br>
+ <br><br>
+
+</ol>
+  </div> 
+      <br>
+      <br>
+      <br>
+    
+      <span class="font-size_20px arial">OrnaJS functions for Atomize</span><br><br>
+
+<div class="text-align_left">
+  <ol class="margin_auto width_400px color_#ee0645">
+      <li><span class="color_black">createatom();</span></li><br><br>
+
   <li><span class="color_black">reverseclass('id', 'classname1', 'classname2', listen);</span></li><br><br>
+
+
+</ol>
+  </div> <br>
+      <br>
+      <br>
+    
+      <span class="font-size_20px arial">OrnaJS functions in additional</span><br><br>
+
+<div class="text-align_left">
+  <ol class="margin_auto width_400px color_#ee0645">
+   <li><span class="color_black">reversebackground('id', 'url1', 'url2');</span></li><br><br>
   <li><span class="color_black">widthadaptive('id', screenwidth, widthmain, widthnew);</span></li><br><br>
   <li><span class="color_black">heightadaptive('id', screenwidth, heightmain, heightnew);</span></li><br><br>
   <li><span class="color_black">titletimer();</span></li><br><br>
    <li><span class="color_black">time('id');</span></li><br><br>
    <li><span class="color_black">progressy('id', limit, step, speed);</span></li><br><br>
    <li><span class="color_black">progressx('id', limit, step, speed);</span></li><br><br>
-    <li><span class="color_black">livetext(['Hello World.', 'Live Text', 'Made with Love.'],'livetext',['tomato','rebeccapurple','lightblue']);</span></li><br><br>
-    <li><span class="color_black">createatom();</span></li><br><br>
 
 </ol>
   </div>
   </code> </div></div>
   <div>This page fully written with <a href="https://github.com/OrnaOrg/OrnaJS" class="color_#ee0645">OrnaJS</a>.</div>
     <br> </body>
-
 </html>

@@ -109,7 +109,6 @@ function progressy(id, limit, step, speed) {
             yon = true;
 
             function progress(id, limit, step, speed) {
-                createatom();
                 var risebar = $(id);
                 var currentheight = risebar.height();
                 var i = 0;
@@ -145,8 +144,7 @@ function progressx(id, limit, step, speed) {
             xon = true;
 
             function progress(id, limit, step, speed) {
-                createatom();
-                var risebar = $(id);
+               var risebar = $(id);
                 var currentwidth = risebar.width();
                 var i = 0;
                 var moveup = setInterval(function() {
@@ -170,43 +168,6 @@ function progressx(id, limit, step, speed) {
             progress(id, limit, step, speed);
         }
     }
-    //-----------------------livetext------------------------
-    //livetext(['Hello World.', 'Live Text', 'Made with Love.'],'livetext',['tomato','rebeccapurple','lightblue']);
-function livetext(words, id, colors) {
-        if (colors === undefined) colors = ['#fff'];
-        var visible = true;
-        var letterCount = 1;
-        var x = 1;
-        var waiting = false;
-        var target = document.getElementById(id)
-        target.setAttribute('style', 'color:' + colors[0])
-        window.setInterval(function() {
-            if (letterCount === 0 && waiting === false) {
-                waiting = true;
-                target.innerHTML = words[0].substring(0, letterCount)
-                window.setTimeout(function() {
-                    var usedColor = colors.shift();
-                    colors.push(usedColor);
-                    var usedWord = words.shift();
-                    words.push(usedWord);
-                    x = 1;
-                    target.setAttribute('style', 'color:' + colors[0])
-                    letterCount += x;
-                    waiting = false;
-                }, 1000)
-            } else if (letterCount === words[0].length + 1 && waiting === false) {
-                waiting = true;
-                window.setTimeout(function() {
-                    x = -1;
-                    letterCount += x;
-                    waiting = false;
-                }, 1000)
-            } else if (waiting === false) {
-                target.innerHTML = words[0].substring(0, letterCount)
-                letterCount += x;
-            }
-        }, 120)
-    }
     //-----------------------------create-atom----------------------------------------------
     //createatom();
 $(document).ready(function() {
@@ -214,7 +175,7 @@ $(document).ready(function() {
 });
 
 function createatom(current) {
-        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code'];
+        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio'];
         for (var i = 0; i !== tag.length; i++) {
             var tagsize = $(tag[i]).size();
             toall(tag[i], tagsize);
@@ -285,11 +246,55 @@ function createatom(current) {
                                 addstyle(part, val);
                                 //alert(part[1]);
                             }
-                        } else if (part[0] == "border") {
+                        } else if (part[0] == "border"&&val!=="none") {
                             if (val !== undefined) {
                                 if (part[2] == undefined || part[3] == undefined) {
 
                                     alert("Hi! I'm Orna! Atomic class border need three value width, color and style");
+
+                                }
+                                part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                                addstyle(part, val);
+                                //alert(part[1]);
+                            }
+                        } else if (part[0] == "border-left") {
+                            if (val !== undefined) {
+                                if (part[2] == undefined || part[3] == undefined) {
+
+                                    alert("Hi! I'm Orna! Atomic class border-left need three value width, color and style");
+
+                                }
+                                part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                                addstyle(part, val);
+                                //alert(part[1]);
+                            }
+                        } else if (part[0] == "border-right") {
+                            if (val !== undefined) {
+                                if (part[2] == undefined || part[3] == undefined) {
+
+                                    alert("Hi! I'm Orna! Atomic class border-right need three value width, color and style");
+
+                                }
+                                part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                                addstyle(part, val);
+                                //alert(part[1]);
+                            }
+                        } else if (part[0] == "border-top") {
+                            if (val !== undefined) {
+                                if (part[2] == undefined || part[3] == undefined) {
+
+                                    alert("Hi! I'm Orna! Atomic class border-top need three value width, color and style");
+
+                                }
+                                part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                                addstyle(part, val);
+                                //alert(part[1]);
+                            }
+                        } else if (part[0] == "border-bottom") {
+                            if (val !== undefined) {
+                                if (part[2] == undefined || part[3] == undefined) {
+
+                                    alert("Hi! I'm Orna! Atomic class border-bottom need three value width, color and style");
 
                                 }
                                 part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
