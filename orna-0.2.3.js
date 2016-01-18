@@ -301,7 +301,7 @@ function createatom(current) {
                                 addstyle(part, val);
                                 //alert(part[1]);
                             }
-                        } else if (part[0] == "outline") {
+                        } else if (part[0] == "outline"&&val!=="none") {
                             if (val !== undefined) {
                                 if (part[2] == undefined || part[3] == undefined) {
 
