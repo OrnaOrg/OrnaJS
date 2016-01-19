@@ -171,21 +171,25 @@ $(document).ready(function() {
     createatom();
 });
 
-function createatom(current) {
-    var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label'];
-    for (var i = 0; i !== tag.length; i++) {
-        var tagsize = $(tag[i]).size();
-        toall(tag[i], tagsize);
-    }
+function createatom(id) {
+    if (id === undefined) {
+        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label'];
 
-    function toall(tag, tagsize) {
-        for (var i = 0; i !== tagsize; i++) {
-            var istag = $(tag).is(tag);
-            if (istag == true) {
-                var current = tag + ":eq(" + i + ")";
-                stylefilter(current);
+        function toall(tag, tagsize) {
+            for (var i = 0; i !== tagsize; i++) {
+                var istag = $(tag).is(tag);
+                if (istag === true) {
+                    var current = tag + ":eq(" + i + ")";
+                    stylefilter(current);
+                }
             }
         }
+        for (var i = 0; i !== tag.length; i++) {
+            var tagsize = $(tag[i]).size();
+            toall(tag[i], tagsize);
+        }
+    } else {
+        stylefilter(id);
     }
 
     function stylefilter(current) {
@@ -199,7 +203,35 @@ function createatom(current) {
                 var val = part[1];
 
                 function extrastyle(part) {
-                        $(current).css(part[0], part[1]);
+                    $(current).css(part[0], part[1]);
+                }
+
+                function addstyle(part, val) {
+                        if (val !== undefined) {
+                            if (part[2] == 'mouseover') {
+                                $(current).on('mouseenter', function() {
+                                    $(current).css(part[0], part[1]);
+                                });
+                            } else if (part[2] == 'mouseout') {
+                                $(current).on('mouseleave', function() {
+                                    $(current).css(part[0], part[1]);
+                                });
+                            } else if (part[2] == 'focus') {
+                                $(current).on('focusin', function() {
+                                    $(current).css(part[0], part[1]);
+                                });
+                            } else if (part[2] == 'blur') {
+                                $(current).on('focusout', function() {
+                                    $(current).css(part[0], part[1]);
+                                });
+                            } else if (part[2] == 'click') {
+                                $(current).click(function() {
+                                    $(current).css(part[0], part[1]);
+                                });
+                            } else {
+                                $(current).css(part[0], part[1]);
+                            }
+                        }
                     }
                     /*---------Abbreviated-name----------------*/
                 if (part[0] == "hideatom") {
@@ -226,7 +258,7 @@ function createatom(current) {
                 /*---------Molecules-scan------------------*/
                 else if (part[0] == "box-shadow" || part[0] == "shadow") {
                     if (val !== undefined) {
-                        if (part[2] == undefined || part[3] == undefined) {
+                        if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class shadow or box-shadow need five value: shadow_0_0_20px_10px_black");
                         }
                         part[0] = "box-shadow";
@@ -240,7 +272,7 @@ function createatom(current) {
                     }
                 } else if (part[0] == "border" && val !== "none") {
                     if (val !== undefined) {
-                        if (part[2] == undefined || part[3] == undefined) {
+                        if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
@@ -248,7 +280,7 @@ function createatom(current) {
                     }
                 } else if (part[0] == "border-left") {
                     if (val !== undefined) {
-                        if (part[2] == undefined || part[3] == undefined) {
+                        if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-left need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
@@ -256,7 +288,7 @@ function createatom(current) {
                     }
                 } else if (part[0] == "border-right") {
                     if (val !== undefined) {
-                        if (part[2] == undefined || part[3] == undefined) {
+                        if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-right need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
@@ -264,7 +296,7 @@ function createatom(current) {
                     }
                 } else if (part[0] == "border-top") {
                     if (val !== undefined) {
-                        if (part[2] == undefined || part[3] == undefined) {
+                        if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-top need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
@@ -272,7 +304,7 @@ function createatom(current) {
                     }
                 } else if (part[0] == "border-bottom") {
                     if (val !== undefined) {
-                        if (part[2] == undefined || part[3] == undefined) {
+                        if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-bottom need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
@@ -280,7 +312,7 @@ function createatom(current) {
                     }
                 } else if (part[0] == "outline" && val !== "none") {
                     if (val !== undefined) {
-                        if (part[2] == undefined || part[3] == undefined) {
+                        if (part[2] === undefined || part[3] === undefined) {
                             alert("Hello! I'm Orna! Atomic class outline need three value: width, color, style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
@@ -312,7 +344,7 @@ function createatom(current) {
                         addstyle(part, val);
                     }
                 } else if (part[0] == "transition") {
-                    if (part[2] == undefined || part[3] == undefined || part[4] == undefined) {
+                    if (part[2] === undefined || part[3] === undefined || part[4] === undefined) {
                         alert("Hello! Atomic class transition need four value, like it: transition_all_0.5s_ease_2s");
                     }
                     if (val !== undefined) {
@@ -321,7 +353,7 @@ function createatom(current) {
                     }
                 }
                 /*--------------Special-classes-------------------*/
-                if (val == undefined) {
+                if (val === undefined) {
                     if (part[0] == "Arial" || part[0] == "arial") {
                         part[0] = 'font-family';
                         part[1] = 'Arial, sans-serif';
@@ -362,34 +394,6 @@ function createatom(current) {
                         part[0] = 'display';
                         part[1] = 'block';
                         extrastyle(part);
-                    }
-                }
-
-                function addstyle(part, val) {
-                    if (val !== undefined) {
-                        if (part[2] == 'mouseover') {
-                            $(current).on('mouseenter', function() {
-                                $(current).css(part[0], part[1]);
-                            });
-                        } else if (part[2] == 'mouseout') {
-                            $(current).on('mouseleave', function() {
-                                $(current).css(part[0], part[1]);
-                            });
-                        } else if (part[2] == 'focus') {
-                            $(current).on('focusin', function() {
-                                $(current).css(part[0], part[1]);
-                            });
-                        } else if (part[2] == 'blur') {
-                            $(current).on('focusout', function() {
-                                $(current).css(part[0], part[1]);
-                            });
-                        } else if (part[2] == 'click') {
-                            $(current).click(function() {
-                                $(current).css(part[0], part[1]);
-                            });
-                        } else {
-                            $(current).css(part[0], part[1]);
-                        }
                     }
                 }
                 addstyle(part, val);
