@@ -2,36 +2,39 @@
 //------------------reverse-background-----------------------------
 //reversebackground('id', 'url1', 'url2');
 //id = #id, .class, tag;
-var backgroundstatus = 0;
+var bg_status = 0;
 
 function reversebackground(id, url1, url2) {
-        if (backgroundstatus == 0) {
+        if (bg_status == 0) {
             $(id).css("background-image", 'url("' + url1 + '")');
-            backgroundstatus = 1;
+            bg_status = 1;
             return;
         }
-        if (backgroundstatus == 1) {
+        if (bg_status == 1) {
             $(id).css("background-image", 'url("' + url2 + '")');
-            backgroundstatus = 0;
+            bg_status = 0;
         }
     }
     //--------------------reverseclass---------------------------
     //reverseclass('id', 'classname1', 'classname2', listen);
     //listen = true or false
     //id = #id, .class, tag;
-var classstatus = 0;
+var class_status;
 
 function reverseclass(id, classname1, classname2, listen) {
+        if (class_status == undefined) {
+            class_status = 0;
+        }
         if (listen) {
-            if (classstatus == 0) {
+            if (class_status == 0) {
                 $(id).removeClass(classname1);
                 $(id).addClass(classname2);
-                classstatus = 1;
+                class_status = 1;
                 createatom();
-            } else if (classstatus == 1) {
+            } else if (class_status == 1) {
                 $(id).removeClass(classname2);
                 $(id).addClass(classname1);
-                classstatus = 0;
+                class_status = 0;
                 createatom();
             }
         } else {
@@ -101,68 +104,72 @@ function time(id) {
     //progressy('id', limit, step, speed);
     //id = #id, .class, tag;
 var yon = false;
+var ystop = false;
 
 function progressy(id, limit, step, speed) {
         if (yon == false) {
             yon = true;
-
-            function progress(id, limit, step, speed) {
-                var risebar = $(id);
-                var currentheight = risebar.height();
-                var i = 0;
-                var moveup = setInterval(function() {
-                    if (risebar) {
+            var risebar = $(id);
+            var currentheight = risebar.height();
+            var i = 0;
+            var moveup = setInterval(function() {
+                if (risebar) {
+                    if (ystop == false) {
                         i += step;
                         risebar.height(currentheight + i);
-                        if (i >= limit) {
-                            clearInterval(moveup);
-                            var movedown = setInterval(function() {
+                    }
+                    if (i >= limit) {
+                        clearInterval(moveup);
+                        var movedown = setInterval(function() {
+                            if (ystop == false) {
                                 i -= step;
                                 risebar.height(currentheight + i);
                                 if (currentheight + i <= currentheight) {
                                     clearInterval(movedown);
-                                    progress(id, limit, step, speed);
+                                    yon = false;
+                                    progressy(id, limit, step, speed);
                                 }
-                            }, speed);
-                        }
+                            }
+                        }, speed);
                     }
-                }, speed);
-            }
-            progress(id, limit, step, speed);
+                }
+            }, speed);
         }
     }
     //-----------------------------progress-x----------------------------------------------
     //progressx('id', limit, step, speed);
     //id = #id, .class, tag;
 var xon = false;
+var xstop = false;
 
 function progressx(id, limit, step, speed) {
         if (xon == false) {
             xon = true;
-
-            function progress(id, limit, step, speed) {
-                var risebar = $(id);
-                var currentwidth = risebar.width();
-                var i = 0;
-                var moveup = setInterval(function() {
-                    if (risebar) {
+            var risebar = $(id);
+            var currentwidth = risebar.width();
+            var i = 0;
+            var moveup = setInterval(function() {
+                if (risebar) {
+                    if (xstop == false) {
                         i += step;
                         risebar.width(currentwidth + i);
-                        if (i >= limit) {
-                            clearInterval(moveup);
-                            var movedown = setInterval(function() {
+                    }
+                    if (i >= limit) {
+                        clearInterval(moveup);
+                        var movedown = setInterval(function() {
+                            if (xstop == false) {
                                 i -= step;
                                 risebar.width(currentwidth + i);
                                 if (currentwidth + i <= currentwidth) {
                                     clearInterval(movedown);
-                                    progress(id, limit, step, speed);
+                                    xon = false;
+                                    progressx(id, limit, step, speed);
                                 }
-                            }, speed);
-                        }
+                            }
+                        }, speed);
                     }
-                }, speed);
-            }
-            progress(id, limit, step, speed);
+                }
+            }, speed);
         }
     }
     //-----------------------------create-atom----------------------------------------------
@@ -233,10 +240,12 @@ function createatom(id) {
                             }
                         }
                     }
-                    /*---------Abbreviated-name----------------*/
+                    
                 if (part[0] == "hideatom") {
                     break;
-                } else if (part[0] == "rotate") {
+                }
+                /*---------Abbreviated-name----------------*/
+                else if (part[0] == "rotate") {
                     if (val !== undefined) {
                         part[1] = part[0] + '(' + part[1] + ')';
                         part[0] = 'transform'
@@ -393,6 +402,78 @@ function createatom(id) {
                     } else if (part[0] == "block") {
                         part[0] = 'display';
                         part[1] = 'block';
+                        extrastyle(part);
+                    }
+                    /*---flexbox---*/
+                    else if (part[0] == "flexstart-") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'justify-content';
+                        part[1] = 'flex-start';
+                        extrastyle(part);
+                    } else if (part[0] == "flexcenter-") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'justify-content';
+                        part[1] = 'center';
+                        extrastyle(part);
+                    } else if (part[0] == "flexend-") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'justify-content';
+                        part[1] = 'flex-end';
+                        extrastyle(part);
+                    } else if (part[0] == "spacebetween") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'justify-content';
+                        part[1] = 'space-between';
+                        extrastyle(part);
+                    } else if (part[0] == "spacearound") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'justify-content';
+                        part[1] = 'space-around';
+                        extrastyle(part);
+                    } else if (part[0] == "flexstart|") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'align-items';
+                        part[1] = 'flex-start';
+                        extrastyle(part);
+                    } else if (part[0] == "flexcenter|") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'align-items';
+                        part[1] = 'center';
+                        extrastyle(part);
+                    } else if (part[0] == "flexend|") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'align-items';
+                        part[1] = 'flex-end';
+                        extrastyle(part);
+                    } else if (part[0] == "baseline") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'align-items';
+                        part[1] = 'baseline';
+                        extrastyle(part);
+                    } else if (part[0] == "stretch") {
+                        part[0] = 'display';
+                        part[1] = 'flex';
+                        extrastyle(part);
+                        part[0] = 'align-items';
+                        part[1] = 'stretch';
                         extrastyle(part);
                     }
                 }
