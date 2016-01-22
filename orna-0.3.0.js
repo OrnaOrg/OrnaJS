@@ -295,11 +295,22 @@ function createatom(id) {
                         }
                         part[0] = "box-shadow";
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4] + ' ' + part[5];
+                        delete part[2];
+                        delete part[3];
+                        delete part[4];
+                        delete part[5];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "text-shadow") {
                     if (val !== undefined) {
-                        part[1] = part[2] + ' ' + part[3] + ' ' + part[4] + ' ' + part[5];
+                        if (part[2] === undefined || part[3] === undefined) {
+                            alert("Hi! I'm Orna! Atomic class text-shadow need five value: text-shadow_0_0_20px_10px_black");
+                        }
+                        part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4] + ' ' + part[5];
+                        delete part[2];
+                        delete part[3];
+                        delete part[4];
+                        delete part[5];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "border" && val !== "none") {
@@ -308,6 +319,8 @@ function createatom(id) {
                             alert("Hi! I'm Orna! Atomic class border need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                        delete part[2];
+                        delete part[3];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "border-left") {
@@ -316,6 +329,8 @@ function createatom(id) {
                             alert("Hi! I'm Orna! Atomic class border-left need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                        delete part[2];
+                        delete part[3];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "border-right") {
@@ -324,6 +339,8 @@ function createatom(id) {
                             alert("Hi! I'm Orna! Atomic class border-right need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                        delete part[2];
+                        delete part[3];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "border-top") {
@@ -332,6 +349,8 @@ function createatom(id) {
                             alert("Hi! I'm Orna! Atomic class border-top need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                        delete part[2];
+                        delete part[3];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "border-bottom") {
@@ -340,6 +359,8 @@ function createatom(id) {
                             alert("Hi! I'm Orna! Atomic class border-bottom need three value width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                        delete part[2];
+                        delete part[3];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "outline" && val !== "none") {
@@ -348,6 +369,8 @@ function createatom(id) {
                             alert("Hello! I'm Orna! Atomic class outline need three value: width, color, style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
+                        delete part[2];
+                        delete part[3];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "bg") {
@@ -382,8 +405,13 @@ function createatom(id) {
                     if (val !== undefined) {
                         part[0] = 'transition';
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4];
+                        delete part[2];
+                        delete part[3];
+                        delete part[4];
                         addstyle(part, val);
                     }
+                } else {
+                    addstyle(part, val);
                 }
                 /*------------------Special-classes---------------*/
                 if (val === undefined) {
@@ -501,7 +529,6 @@ function createatom(id) {
                         extrastyle(part);
                     }
                 }
-                addstyle(part, val);
             }
         }
     }
