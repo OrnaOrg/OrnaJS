@@ -214,7 +214,10 @@ function createatom(id) {
                 }
 
                 function addstyle(part, val) {
-                        if (val !== undefined) {
+                    if (val !== undefined) {
+                        if (part[2] === undefined) {
+                            $(current).css(part[0], part[1]);
+                        } else if (part[2] !== undefined && part[3] === undefined) {
                             if (part[2] == 'mouseover') {
                                 $(current).on('mouseenter', function() {
                                     $(current).css(part[0], part[1]);
@@ -236,15 +239,37 @@ function createatom(id) {
                                     $(current).css(part[0], part[1]);
                                 });
                             } else {
-                                $(current).css(part[0], part[1]);
+                                $(current + ' ' + part[2]).css(part[0], part[1]);
+                            }
+                        } else if (part[2] !== undefined && part[3] !== undefined) {
+                            if (part[2] == 'mouseover') {
+                                $(current + ' ' + part[3]).on('mouseenter', function() {
+                                    $(current + ' ' + part[3]).css(part[0], part[1]);
+                                });
+                            } else if (part[2] == 'mouseout') {
+                                $(current + ' ' + part[3]).on('mouseleave', function() {
+                                    $(current + ' ' + part[3]).css(part[0], part[1]);
+                                });
+                            } else if (part[2] == 'focus') {
+                                $(current + ' ' + part[3]).on('focusin', function() {
+                                    $(current + ' ' + part[3]).css(part[0], part[1]);
+                                });
+                            } else if (part[2] == 'blur') {
+                                $(current + ' ' + part[3]).on('focusout', function() {
+                                    $(current + ' ' + part[3]).css(part[0], part[1]);
+                                });
+                            } else if (part[2] == 'click') {
+                                $(current + ' ' + part[3]).click(function() {
+                                    $(current + ' ' + part[3]).css(part[0], part[1]);
+                                });
                             }
                         }
                     }
-                    
+                }
                 if (part[0] == "hideatom") {
                     break;
                 }
-                /*---------Abbreviated-name----------------*/
+                /*---------Abbreviated-name-&-Molecules-scan--------*/
                 else if (part[0] == "rotate") {
                     if (val !== undefined) {
                         part[1] = part[0] + '(' + part[1] + ')';
@@ -263,9 +288,7 @@ function createatom(id) {
                         part[0] = 'transform'
                         addstyle(part, val);
                     }
-                }
-                /*---------Molecules-scan------------------*/
-                else if (part[0] == "box-shadow" || part[0] == "shadow") {
+                } else if (part[0] == "box-shadow" || part[0] == "shadow") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class shadow or box-shadow need five value: shadow_0_0_20px_10px_black");
@@ -352,16 +375,17 @@ function createatom(id) {
                         part[0] = 'background-image';
                         addstyle(part, val);
                     }
-                } else if (part[0] == "transition") {
+                } else if (part[0] == "transition" || part[0] == "tran") {
                     if (part[2] === undefined || part[3] === undefined || part[4] === undefined) {
                         alert("Hello! Atomic class transition need four value, like it: transition_all_0.5s_ease_2s");
                     }
                     if (val !== undefined) {
+                        part[0] = 'transition';
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4];
                         addstyle(part, val);
                     }
                 }
-                /*--------------Special-classes-------------------*/
+                /*------------------Special-classes---------------*/
                 if (val === undefined) {
                     if (part[0] == "Arial" || part[0] == "arial") {
                         part[0] = 'font-family';
