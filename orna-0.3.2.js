@@ -19,28 +19,25 @@ function reversebackground(id, url1, url2) {
     //reverseclass('id', 'classname1', 'classname2', listen);
     //listen = true or false
     //id = #id, .class, tag;
-var class_status;
+var class_status = 0;
 
 function reverseclass(id, classname1, classname2, listen) {
-        if (class_status == undefined) {
-            class_status = 0;
-        }
         if (listen) {
             if (class_status == 0) {
                 $(id).removeClass(classname1);
                 $(id).addClass(classname2);
                 class_status = 1;
-                createatom();
+                createatom(id);
             } else if (class_status == 1) {
                 $(id).removeClass(classname2);
                 $(id).addClass(classname1);
                 class_status = 0;
-                createatom();
+                createatom(id);
             }
         } else {
             $(id).removeClass(classname1);
             $(id).addClass(classname2);
-            createatom();
+            createatom(id);
         }
     }
     //--------------------------height-adaptive-------------------------------------
