@@ -395,6 +395,11 @@ function createatom(id) {
                         part[0] = 'background-image';
                         addstyle(part, val);
                     }
+                } else if (part[0] == "bgr") {
+                    if (val !== undefined) {
+                        part[0] = 'background-repeat';
+                        addstyle(part, val);
+                    }
                 } else if (part[0] == "transition" || part[0] == "tran") {
                     if (part[2] === undefined || part[3] === undefined || part[4] === undefined) {
                         alert("Hello! Atomic class transition need four value, like it: transition_all_0.5s_ease_2s");
