@@ -1,6 +1,5 @@
 //https://github.com/OrnaOrg/OrnaJS
-    //-----------------------------create-atom----------------------------------------------
-    //createatom();
+/*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
 });
@@ -8,7 +7,7 @@ $(document).ready(function() {
 function createatom(id) {
     if (id === undefined) {
         var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label'];
-
+        /*-----Scan-all-tags------------------------*/
         function toall(tag, tagsize) {
             for (var i = 0; i !== tagsize; i++) {
                 var istag = $(tag).is(tag);
@@ -25,7 +24,7 @@ function createatom(id) {
     } else {
         stylefilter(id);
     }
-
+    /*-----Check-the-classes--------------------*/
     function stylefilter(current) {
         var attr = $(current).attr('class');
         var style;
@@ -91,6 +90,23 @@ function createatom(id) {
                 }
                 if (part[0] == "hideatom") {
                     break;
+                } else if (part[0] == "ornahelp") {
+
+                    var helpinfo = '<div id="ornahelp"><h2  align="center">Orna - tool for Atomic CSS.</h2> <p>Just write CSS like classes, class="width_100px color_red color_green_click"</p><h3>Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><h3>Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover</p><p>mouseout</p><h3>Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>ornahelp - view the help info</li><br></ol><a href="http://ornaorg.github.io" style="text-decoration:none; color:#ee0645">ornaorg.github.io</a><div>';
+
+                    $(current).append(helpinfo);
+                    $('#ornahelp').css('background-color', 'rgb(220,220,220)');
+                    $('#ornahelp').css('color', 'black');
+                    $('#ornahelp').css('height', 'auto');
+                    $('#ornahelp').css('width', 'auto');
+                    $('#ornahelp').css('position', 'absolute');
+                    $('#ornahelp').css('top', '0');
+                    $('#ornahelp').css('left', '0');
+                    $('#ornahelp').css('right', '0');
+                    $('#ornahelp').css('overflow', 'hidden');
+                    $('#ornahelp').css('z-index', '1000');
+                    $('#ornahelp').css('padding', '10px');
+                    $('#ornahelp').css('border', '2px dashed black');
                 }
                 /*---------Abbreviated-name-&-Molecules-scan--------*/
                 else if (part[0] == "rotate") {
@@ -114,7 +130,7 @@ function createatom(id) {
                 } else if (part[0] == "box-shadow" || part[0] == "shadow") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hi! I'm Orna! Atomic class shadow or box-shadow need five value: shadow_0_0_20px_10px_black");
+                            alert("Hi! I'm Orna! Atomic class shadow or box-shadow need five values: shadow_0_0_20px_10px_black");
                         }
                         part[0] = "box-shadow";
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4] + ' ' + part[5];
@@ -135,7 +151,7 @@ function createatom(id) {
                 } else if (part[0] == "text-shadow") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hi! I'm Orna! Atomic class text-shadow need five value: text-shadow_0_0_20px_10px_black");
+                            alert("Hi! I'm Orna! Atomic class text-shadow need five values: text-shadow_0_0_20px_10px_black");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4] + ' ' + part[5];
                         if (part[6] !== undefined) {
@@ -155,7 +171,7 @@ function createatom(id) {
                 } else if (part[0] == "border" && val !== "none") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hi! I'm Orna! Atomic class border need three value width, color and style");
+                            alert("Hi! I'm Orna! Atomic class border need three values width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
                         if (part[4] !== undefined) {
@@ -173,7 +189,7 @@ function createatom(id) {
                 } else if (part[0] == "border-left") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hi! I'm Orna! Atomic class border-left need three value width, color and style");
+                            alert("Hi! I'm Orna! Atomic class border-left need three values width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
                         if (part[4] !== undefined) {
@@ -191,7 +207,7 @@ function createatom(id) {
                 } else if (part[0] == "border-right") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hi! I'm Orna! Atomic class border-right need three value width, color and style");
+                            alert("Hi! I'm Orna! Atomic class border-right need three values width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
                         if (part[4] !== undefined) {
@@ -209,7 +225,7 @@ function createatom(id) {
                 } else if (part[0] == "border-top") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hi! I'm Orna! Atomic class border-top need three value width, color and style");
+                            alert("Hi! I'm Orna! Atomic class border-top need three values width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
                         if (part[4] !== undefined) {
@@ -227,7 +243,7 @@ function createatom(id) {
                 } else if (part[0] == "border-bottom") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hi! I'm Orna! Atomic class border-bottom need three value width, color and style");
+                            alert("Hi! I'm Orna! Atomic class border-bottom need three values width, color and style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
                         if (part[4] !== undefined) {
@@ -245,7 +261,7 @@ function createatom(id) {
                 } else if (part[0] == "outline" && val !== "none") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hello! I'm Orna! Atomic class outline need three value: width, color, style");
+                            alert("Hello! I'm Orna! Atomic class outline need three values: width, color, style");
                         }
                         part[1] = part[1] + ' ' + part[2] + ' ' + part[3];
                         delete part[2];
@@ -284,7 +300,7 @@ function createatom(id) {
                     }
                 } else if (part[0] == "transition" || part[0] == "tran") {
                     if (part[2] === undefined || part[3] === undefined || part[4] === undefined) {
-                        alert("Hello! Atomic class transition need four value, like it: transition_all_1s_ease_0.5s");
+                        alert("Hello! Atomic class transition need four values, like it: transition_all_1s_ease_0.5s");
                     }
                     if (val !== undefined) {
                         part[0] = 'transition';
@@ -305,7 +321,7 @@ function createatom(id) {
                 } else {
                     addstyle(part, val);
                 }
-                /*------------------Special-classes---------------*/
+                /*--------------Special-classes---------------*/
                 if (part[0] == "Arial" || part[0] == "arial") {
                     if (part[1] !== undefined) {
                         if (part[2] !== undefined) {
