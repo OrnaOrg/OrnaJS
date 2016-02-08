@@ -37,9 +37,12 @@ function createatom(id) {
 
                 function addstyle(part, val) {
                     if (val !== undefined) {
+                        /*----1--check------*/
                         if (part[2] === undefined) {
                             $(current).css(part[0], part[1]);
-                        } else if (part[2] !== undefined && part[3] === undefined) {
+                        }
+                        /*----2--check------*/
+                        else if (part[2] !== undefined && part[3] === undefined) {
                             if (part[2] == 'mouseover') {
                                 $(current).on('mouseenter', function() {
                                     $(current).css(part[0], part[1]);
@@ -63,27 +66,52 @@ function createatom(id) {
                             } else {
                                 $(current + ' ' + part[2]).css(part[0], part[1]);
                             }
-                        } else if (part[2] !== undefined && part[3] !== undefined) {
+                        }
+                        /*----3--check-----*/
+                        else if (part[2] !== undefined && part[3] !== undefined) {
                             if (part[2] == 'mouseover') {
-                                $(current + ' ' + part[3]).on('mouseenter', function() {
+                                $(current).on('mouseenter', function() {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
                             } else if (part[2] == 'mouseout') {
-                                $(current + ' ' + part[3]).on('mouseleave', function() {
+                                $(current).on('mouseleave', function() {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
                             } else if (part[2] == 'focus') {
-                                $(current + ' ' + part[3]).on('focusin', function() {
+                                $(current).on('focusin', function() {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
                             } else if (part[2] == 'blur') {
-                                $(current + ' ' + part[3]).on('focusout', function() {
+                                $(current).on('focusout', function() {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
                             } else if (part[2] == 'click') {
-                                $(current + ' ' + part[3]).click(function() {
+                                $(current).click(function() {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
+                            } else {
+                                /*----4--check-----*/
+                                if (part[3] == 'mouseover') {
+                                    $(current + ' ' + part[2]).on('mouseenter', function() {
+                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    });
+                                } else if (part[3] == 'mouseout') {
+                                    $(current + ' ' + part[2]).on('mouseleave', function() {
+                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    });
+                                } else if (part[3] == 'focus') {
+                                    $(current + ' ' + part[2]).on('focusin', function() {
+                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    });
+                                } else if (part[3] == 'blur') {
+                                    $(current + ' ' + part[2]).on('focusout', function() {
+                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    });
+                                } else if (part[3] == 'click') {
+                                    $(current + ' ' + part[2]).click(function() {
+                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    });
+                                }
                             }
                         }
                     }
@@ -91,9 +119,7 @@ function createatom(id) {
                 if (part[0] == "hideatom") {
                     break;
                 } else if (part[0] == "ornahelp") {
-
                     var helpinfo = '<div id="ornahelp"><h2  align="center">Orna - tool for Atomic CSS.</h2> <p>Just write CSS like classes, class="width_100px color_red color_green_click"</p><h3>Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><h3>Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover</p><p>mouseout</p><h3>Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>ornahelp - view the help info</li><br></ol><a href="http://ornaorg.github.io" style="text-decoration:none; color:#ee0645">ornaorg.github.io</a><div>';
-
                     $(current).append(helpinfo);
                     $('#ornahelp').css('background-color', 'rgb(220,220,220)');
                     $('#ornahelp').css('color', 'black');

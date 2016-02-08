@@ -6,7 +6,7 @@
 Orna is good tool that atomize your css
 -----------------------------------------------
 
-**Atomic CSS** - is a model or style of coding where each of properties has own style classes. 
+**Atomic CSS** - is a model or style of coding where each of CSS properties have their own style classes. 
  Good for fast creating the readable and easy changeable User Interface.
 
 **How Orna work?**
