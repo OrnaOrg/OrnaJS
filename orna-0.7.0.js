@@ -1,4 +1,5 @@
 //https://github.com/OrnaOrg/OrnaJS
+//http://ornaorg.github.io
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -194,7 +195,7 @@ function createatom(id) {
                         delete part[5];
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border" && val !== "none") {
+                } else if (part[0] == "border" || part[0] == "b" && val !== "none") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border need three values width, color and style");
@@ -212,7 +213,7 @@ function createatom(id) {
                         }
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border-left") {
+                } else if (part[0] == "border-left" || part[0] == "bl") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-left need three values width, color and style");
@@ -230,7 +231,7 @@ function createatom(id) {
                         }
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border-right") {
+                } else if (part[0] == "border-right" || part[0] == "br") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-right need three values width, color and style");
@@ -248,7 +249,7 @@ function createatom(id) {
                         }
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border-top") {
+                } else if (part[0] == "border-top" || part[0] == "bt") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-top need three values width, color and style");
@@ -266,7 +267,7 @@ function createatom(id) {
                         }
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border-bottom") {
+                } else if (part[0] == "border-bottom" || part[0] == "bb") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-bottom need three values width, color and style");
@@ -322,6 +323,71 @@ function createatom(id) {
                 } else if (part[0] == "bgr") {
                     if (val !== undefined) {
                         part[0] = 'background-repeat';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "h") {
+                    if (val !== undefined) {
+                        part[0] = 'height';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "w") {
+                    if (val !== undefined) {
+                        part[0] = 'width';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "c") {
+                    if (val !== undefined) {
+                        part[0] = 'color';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "p") {
+                    if (val !== undefined) {
+                        part[0] = 'padding';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "pl") {
+                    if (val !== undefined) {
+                        part[0] = 'padding-left';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "pr") {
+                    if (val !== undefined) {
+                        part[0] = 'padding-right';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "pt") {
+                    if (val !== undefined) {
+                        part[0] = 'padding-top';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "pb") {
+                    if (val !== undefined) {
+                        part[0] = 'padding-bottom';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "m") {
+                    if (val !== undefined) {
+                        part[0] = 'margin';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "ml") {
+                    if (val !== undefined) {
+                        part[0] = 'margin-left';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "mr") {
+                    if (val !== undefined) {
+                        part[0] = 'margin-right';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "mt") {
+                    if (val !== undefined) {
+                        part[0] = 'margin-top';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "mb") {
+                    if (val !== undefined) {
+                        part[0] = 'margin-bottom';
                         addstyle(part, val);
                     }
                 } else if (part[0] == "transition" || part[0] == "tran") {
