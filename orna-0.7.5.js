@@ -320,9 +320,9 @@ function createatom(id) {
                         part[0] = 'background-image';
                         addstyle(part, val);
                     }
-                } else if (part[0] == "bgr") {
+                } else if (part[0] == "bga") {
                     if (val !== undefined) {
-                        part[0] = 'background-repeat';
+                        part[0] = 'background-attachment';
                         addstyle(part, val);
                     }
                 } else if (part[0] == "h") {
