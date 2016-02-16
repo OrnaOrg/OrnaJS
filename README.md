@@ -25,5 +25,6 @@ Then you can write CSS properties like classes in the class attribute
 
 [http://ornaorg.github.io](http://ornaorg.github.io)
 
-Bower: bower install OrnaJS
-NPM: npm install orna
+**Bower:** bower install OrnaJS
+
+**NPM:** npm install orna
