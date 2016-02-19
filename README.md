@@ -27,4 +27,4 @@ Then you can write CSS properties like classes in the class attribute
 
 **Bower:** bower install OrnaJS
 
-**NPM:** npm install orna
+**NPM:** npm install ornajs
