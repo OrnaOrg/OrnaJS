@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 0.8.0
+//version ornajs 1.0.0
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function createatom(id) {
     if (id === undefined) {
-        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i'];
+        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section'];
         /*-----Scan-all-tags------------------------*/
         function toall(tag, tagsize) {
             for (var i = 0; i !== tagsize; i++) {
@@ -389,6 +389,28 @@ function createatom(id) {
                 } else if (part[0] == "mb") {
                     if (val !== undefined) {
                         part[0] = 'margin-bottom';
+                        addstyle(part, val);
+                    }
+                }  else if (part[0] == "td") {
+                    if (val !== undefined) {
+                        part[0] = 'text-decoration';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "ff") {
+                    if (val !== undefined) {
+                        part[0] = 'font-family';
+                        addstyle(part, val);
+                    }
+                }
+                else if (part[0] == "fw") {
+                    if (val !== undefined) {
+                        part[0] = 'font-weight';
+                        addstyle(part, val);
+                    }
+                }
+                else if (part[0] == "br") {
+                    if (val !== undefined) {
+                        part[0] = 'border-radius';
                         addstyle(part, val);
                     }
                 } else if (part[0] == "transition" || part[0] == "tran") {
