@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 1.0.0
+//version ornajs 1.1.0
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -405,6 +405,17 @@ function createatom(id) {
                 else if (part[0] == "fw") {
                     if (val !== undefined) {
                         part[0] = 'font-weight';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "fs") {
+                    if (val !== undefined) {
+                        part[0] = 'font-size';
+                        addstyle(part, val);
+                    }
+                }
+                else if (part[0] == "ta") {
+                    if (val !== undefined) {
+                        part[0] = 'text-align';
                         addstyle(part, val);
                     }
                 }
