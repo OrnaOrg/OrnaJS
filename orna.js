@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 1.1.0
+//version ornajs 1.2.5
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -45,11 +45,11 @@ function createatom(id) {
                         }
                         /*----2--check------*/
                         else if (part[2] !== undefined && part[3] === undefined) {
-                            if (part[2] == 'mouseover') {
+                            if (part[2] == 'mouseover' || part[2] == 'over') {
                                 $(current).on('mouseenter', function() {
                                     $(current).css(part[0], part[1]);
                                 });
-                            } else if (part[2] == 'mouseout') {
+                            } else if (part[2] == 'mouseout'|| part[2] == 'out') {
                                 $(current).on('mouseleave', function() {
                                     $(current).css(part[0], part[1]);
                                 });
@@ -71,11 +71,11 @@ function createatom(id) {
                         }
                         /*----3--check-----*/
                         else if (part[2] !== undefined && part[3] !== undefined) {
-                            if (part[2] == 'mouseover') {
+                            if (part[2] == 'mouseover' || part[2] == 'over') {
                                 $(current).on('mouseenter', function() {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
-                            } else if (part[2] == 'mouseout') {
+                            } else if (part[2] == 'mouseout' || part[2] == 'out') {
                                 $(current).on('mouseleave', function() {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
@@ -93,11 +93,11 @@ function createatom(id) {
                                 });
                             } else {
                                 /*----4--check-----*/
-                                if (part[3] == 'mouseover') {
+                                if (part[3] == 'mouseover' || part[3] == 'over') {
                                     $(current + ' ' + part[2]).on('mouseenter', function() {
                                         $(current + ' ' + part[2]).css(part[0], part[1]);
                                     });
-                                } else if (part[3] == 'mouseout') {
+                                } else if (part[3] == 'mouseout' || part[2] == 'out') {
                                     $(current + ' ' + part[2]).on('mouseleave', function() {
                                         $(current + ' ' + part[2]).css(part[0], part[1]);
                                     });
@@ -121,21 +121,10 @@ function createatom(id) {
                 if (part[0] == "hideatom") {
                     break;
                 } else if (part[0] == "ornahelp") {
-                    var helpinfo = '<div id="ornahelp"><h2  align="center">Orna - tool for Atomic CSS.</h2> <p>Just write CSS like classes, class="width_100px color_red color_green_click"</p><h3>Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><p>property_value_childtagname_event</p><h3>Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover</p><p>mouseout</p><h3>Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>ornahelp - view the help info</li><br></ol><a href="http://ornaorg.github.io" style="text-decoration:none; color:#ee0645">ornaorg.github.io</a><div>';
+                    var helpinfo = '<div id="ornahelp" class="arial bgc_rgb(230,230,230) c_black h_auto w_auto absolute top_0 left_0 right_0 overflow_hidden z-index_1000 p_10px b_2px_dashed_black"><h2  class="textincenter times">Orna - tool for Atomic CSS</h2> <p>Just write CSS like classes:<br><br> <code class=" fs_16px bgc_skyblue p_2px ">class="width_100px color_red color_green_click"</code><br><br> or<br><br> <code class=" fs_16px bgc_#ee0645 p_2px c_white ">class="w_100px c_red c_green_click"</code> </p><h3 class="bgc_white p_4px textincenter times">Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><p>property_value_childtagname_event</p><p><i>Also you can use childtagname or #id or .class</i></p><h3 class="bgc_white p_4px textincenter times">Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover or just over</p><p>mouseout or just out</p><h3 class="bgc_white p_4px textincenter times">Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>fixed - position: fixed</li><br><li>absolute - position: absolute</li><br><li>ornahelp - view the help info</li><br></ol><a href="http://ornaorg.github.io" class="d_block textincenter td_none c_#ee0645">ornaorg.github.io</a><div>';
                     $(current).append(helpinfo);
-                    $('#ornahelp').css('background-color', 'rgb(220,220,220)');
-                    $('#ornahelp').css('color', 'black');
-                    $('#ornahelp').css('height', 'auto');
-                    $('#ornahelp').css('width', 'auto');
-                    $('#ornahelp').css('position', 'absolute');
-                    $('#ornahelp').css('top', '0');
-                    $('#ornahelp').css('left', '0');
-                    $('#ornahelp').css('right', '0');
-                    $('#ornahelp').css('overflow', 'hidden');
-                    $('#ornahelp').css('z-index', '1000');
-                    $('#ornahelp').css('padding', '10px');
-                    $('#ornahelp').css('border', '2px dashed black');
-                }
+                    createatom('#ornahelp');
+                    }
                 /*---------Abbreviated-name-&-Molecules-scan--------*/
                 else if (part[0] == "rotate") {
                     if (val !== undefined) {
@@ -391,7 +380,12 @@ function createatom(id) {
                         part[0] = 'margin-bottom';
                         addstyle(part, val);
                     }
-                }  else if (part[0] == "td") {
+                } else if (part[0] == "d") {
+                    if (val !== undefined) {
+                        part[0] = 'display';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "td") {
                     if (val !== undefined) {
                         part[0] = 'text-decoration';
                         addstyle(part, val);
@@ -401,8 +395,7 @@ function createatom(id) {
                         part[0] = 'font-family';
                         addstyle(part, val);
                     }
-                }
-                else if (part[0] == "fw") {
+                } else if (part[0] == "fw") {
                     if (val !== undefined) {
                         part[0] = 'font-weight';
                         addstyle(part, val);
@@ -412,14 +405,12 @@ function createatom(id) {
                         part[0] = 'font-size';
                         addstyle(part, val);
                     }
-                }
-                else if (part[0] == "ta") {
+                } else if (part[0] == "ta") {
                     if (val !== undefined) {
                         part[0] = 'text-align';
                         addstyle(part, val);
                     }
-                }
-                else if (part[0] == "br") {
+                } else if (part[0] == "br") {
                     if (val !== undefined) {
                         part[0] = 'border-radius';
                         addstyle(part, val);
@@ -461,7 +452,7 @@ function createatom(id) {
                     part[1] = 'Arial, sans-serif';
                     val = part[1];
                     addstyle(part, val);
-                } else if (part[0] == "Times" || part[0] == "TimesNewRoman") {
+                } else if (part[0] == "Times" || part[0] == "times" || part[0] == "TimesNewRoman") {
                     if (part[1] !== undefined) {
                         if (part[2] !== undefined) {
                             part[3] = part[2];
@@ -487,6 +478,33 @@ function createatom(id) {
                     part[1] = 'auto';
                     val = part[1];
                     addstyle(part, val);
+                }
+                else if (part[0] == "absolute") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'position';
+                    part[1] = 'absolute';
+                    val = part[1];
+                    addstyle(part, val);
+                }  else if (part[0] == "fixed") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'position';
+                    part[1] = 'fixed';
+                    val = part[1];
+                    addstyle(part, val);
                 } else if (part[0] == "textincenter") {
                     if (part[1] !== undefined) {
                         if (part[2] !== undefined) {
@@ -498,6 +516,71 @@ function createatom(id) {
                     }
                     part[0] = 'text-align';
                     part[1] = 'center';
+                    val = part[1];
+                    addstyle(part, val);
+                } else if (part[0] == "linear") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'transition';
+                    part[1] = 'all 1s linear 0.2s';
+                    val = part[1];
+                    addstyle(part, val);
+                } else if (part[0] == "ease") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'transition';
+                    part[1] = 'all 1s ease 0.2s';
+                    val = part[1];
+                    addstyle(part, val);
+                } else if (part[0] == "ease-in") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'transition';
+                    part[1] = 'all 1s ease-in 0.2s';
+                    val = part[1];
+                    addstyle(part, val);
+                } else if (part[0] == "ease-out") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'transition';
+                    part[1] = 'all 1s ease-out 0.2s';
+                    val = part[1];
+                    addstyle(part, val);
+                } else if (part[0] == "ease-in-out") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'transition';
+                    part[1] = 'all 1s ease-in-out 0.2s';
                     val = part[1];
                     addstyle(part, val);
                 } else if (part[0] == "uppercase") {
