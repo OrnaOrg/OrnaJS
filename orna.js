@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 1.3.0
+//version ornajs 1.3.5
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -125,7 +125,7 @@ function createatom(id) {
                     $(current).append(helpinfo);
                     createatom('#ornahelp');
                     }
-                /*---------Abbreviated-name-&-Molecules-scan--------*/
+                /*---------Abbreviated-name-&-Molecules-check-&-change--------*/
                 else if (part[0] == "rotate") {
                     if (val !== undefined) {
                         part[1] = part[0] + '(' + part[1] + ')';
@@ -413,6 +413,26 @@ function createatom(id) {
                 } else if (part[0] == "br") {
                     if (val !== undefined) {
                         part[0] = 'border-radius';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "btlr") {
+                    if (val !== undefined) {
+                        part[0] = 'border-top-left-radius';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "btrr") {
+                    if (val !== undefined) {
+                        part[0] = 'border-top-right-radius';
+                        addstyle(part, val);
+                    }
+                } else if (part[0] == "bblr") {
+                    if (val !== undefined) {
+                        part[0] = 'border-bottom-left-radius';
+                        addstyle(part, val);
+                    }
+                }else if (part[0] == "bbrr") {
+                    if (val !== undefined) {
+                        part[0] = 'border-bottom-right-radius';
                         addstyle(part, val);
                     }
                 } else if (part[0] == "transition" || part[0] == "tran") {
