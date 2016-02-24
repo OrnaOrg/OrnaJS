@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 1.3.5
+//version ornajs 1.4.0
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function createatom(id) {
     if (id === undefined) {
-        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section', 'hr'];
+        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section', 'hr', 'section', 'canvas', 'iframe', 'cite', 'abbr', 'acronym' ];
         /*-----Scan-all-tags------------------------*/
         function toall(tag, tagsize) {
             for (var i = 0; i !== tagsize; i++) {
@@ -129,19 +129,19 @@ function createatom(id) {
                 else if (part[0] == "rotate") {
                     if (val !== undefined) {
                         part[1] = part[0] + '(' + part[1] + ')';
-                        part[0] = 'transform'
+                        part[0] = 'transform';
                         addstyle(part, val);
                     }
                 } else if (part[0] == "scale") {
                     if (val !== undefined) {
                         part[1] = part[0] + '(' + part[1] + ')';
-                        part[0] = 'transform'
+                        part[0] = 'transform';
                         addstyle(part, val);
                     }
                 } else if (part[0] == "skew") {
                     if (val !== undefined) {
                         part[1] = part[0] + '(' + part[1] + ')';
-                        part[0] = 'transform'
+                        part[0] = 'transform';
                         addstyle(part, val);
                     }
                 } else if (part[0] == "box-shadow" || part[0] == "shadow") {
@@ -308,6 +308,11 @@ function createatom(id) {
                 } else if (part[0] == "bgi") {
                     if (val !== undefined) {
                         part[0] = 'background-image';
+                        addstyle(part, val);
+                    }
+                }  else if (part[0] == "bgs") {
+                    if (val !== undefined) {
+                        part[0] = 'background-size';
                         addstyle(part, val);
                     }
                 } else if (part[0] == "bga") {
