@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 1.4.0
+//version ornajs 1.6.0
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -8,7 +8,7 @@ $(document).ready(function() {
 
 function createatom(id) {
     if (id === undefined) {
-        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section', 'hr', 'section', 'canvas', 'iframe', 'cite', 'abbr', 'acronym' ];
+        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section', 'hr', 'section', 'canvas', 'iframe', 'cite', 'abbr', 'acronym'];
         /*-----Scan-all-tags------------------------*/
         function toall(tag, tagsize) {
             for (var i = 0; i !== tagsize; i++) {
@@ -49,7 +49,7 @@ function createatom(id) {
                                 $(current).on('mouseenter', function() {
                                     $(current).css(part[0], part[1]);
                                 });
-                            } else if (part[2] == 'mouseout'|| part[2] == 'out') {
+                            } else if (part[2] == 'mouseout' || part[2] == 'out') {
                                 $(current).on('mouseleave', function() {
                                     $(current).css(part[0], part[1]);
                                 });
@@ -62,7 +62,7 @@ function createatom(id) {
                                     $(current).css(part[0], part[1]);
                                 });
                             } else if (part[2] == 'click') {
-                                $(current).click(function() {
+                                $(current).on('click', function() {
                                     $(current).css(part[0], part[1]);
                                 });
                             } else {
@@ -88,30 +88,51 @@ function createatom(id) {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
                             } else if (part[2] == 'click') {
-                                $(current).click(function() {
+                                $(current).on('click', function() {
                                     $(current + ' ' + part[3]).css(part[0], part[1]);
                                 });
                             } else {
                                 /*----4--check-----*/
                                 if (part[3] == 'mouseover' || part[3] == 'over') {
-                                    $(current + ' ' + part[2]).on('mouseenter', function() {
-                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    $(current + ' ' + part[2].replace(/this/, '')).on('mouseenter', function() {
+                                        if (part[2].search(/this/) == -1) {
+                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                        } else {
+                                            $(this).css(part[0], part[1]);
+                                        }
+
                                     });
-                                } else if (part[3] == 'mouseout' || part[2] == 'out') {
-                                    $(current + ' ' + part[2]).on('mouseleave', function() {
-                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                } else if (part[3] == 'mouseout' || part[3] == 'out') {
+                                    $(current + ' ' + part[2].replace(/this/, '')).on('mouseleave', function() {
+                                        if (part[2].search(/this/) == -1) {
+                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                        } else {
+                                            $(this).css(part[0], part[1]);
+                                        }
                                     });
                                 } else if (part[3] == 'focus') {
-                                    $(current + ' ' + part[2]).on('focusin', function() {
-                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    $(current + ' ' + part[2].replace(/this/, '')).on('focusin', function() {
+                                        if (part[2].search(/this/) == -1) {
+                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                        } else {
+                                            $(this).css(part[0], part[1]);
+                                        }
                                     });
                                 } else if (part[3] == 'blur') {
-                                    $(current + ' ' + part[2]).on('focusout', function() {
-                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    $(current + ' ' + part[2].replace(/this/, '')).on('focusout', function() {
+                                        if (part[2].search(/this/) == -1) {
+                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                        } else {
+                                            $(this).css(part[0], part[1]);
+                                        }
                                     });
                                 } else if (part[3] == 'click') {
-                                    $(current + ' ' + part[2]).click(function() {
-                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    $(current + ' ' + part[2].replace(/this/, '')).on('click', function() {
+                                        if (part[2].search(/this/) == -1) {
+                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                        } else {
+                                            $(this).css(part[0], part[1]);
+                                        }
                                     });
                                 }
                             }
@@ -124,7 +145,7 @@ function createatom(id) {
                     var helpinfo = '<div id="ornahelp" class="arial bgc_rgb(230,230,230) c_black h_auto w_auto absolute top_0 left_0 right_0 overflow_hidden z-index_1000 p_10px b_2px_dashed_black"><h2  class="textincenter times">Orna - tool for Atomic CSS</h2> <p>Just write CSS like classes:<br><br> <code class=" fs_16px bgc_skyblue p_2px ">class="width_100px color_red color_green_click"</code><br><br> or<br><br> <code class=" fs_16px bgc_#ee0645 p_2px c_white ">class="w_100px c_red c_green_click"</code> </p><h3 class="bgc_white p_4px textincenter times">Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><p>property_value_childtagname_event</p><p><i>Also you can use childtagname or #id or .class</i></p><h3 class="bgc_white p_4px textincenter times">Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover or just over</p><p>mouseout or just out</p><h3 class="bgc_white p_4px textincenter times">Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>fixed - position: fixed</li><br><li>absolute - position: absolute</li><br><li>ornahelp - view the help info</li><br></ol><a href="http://ornaorg.github.io" class="d_block textincenter td_none c_#ee0645">ornaorg.github.io</a><div>';
                     $(current).append(helpinfo);
                     createatom('#ornahelp');
-                    }
+                }
                 /*---------Abbreviated-name-&-Molecules-check-&-change--------*/
                 else if (part[0] == "rotate") {
                     if (val !== undefined) {
@@ -310,7 +331,7 @@ function createatom(id) {
                         part[0] = 'background-image';
                         addstyle(part, val);
                     }
-                }  else if (part[0] == "bgs") {
+                } else if (part[0] == "bgs") {
                     if (val !== undefined) {
                         part[0] = 'background-size';
                         addstyle(part, val);
@@ -435,7 +456,7 @@ function createatom(id) {
                         part[0] = 'border-bottom-left-radius';
                         addstyle(part, val);
                     }
-                }else if (part[0] == "bbrr") {
+                } else if (part[0] == "bbrr") {
                     if (val !== undefined) {
                         part[0] = 'border-bottom-right-radius';
                         addstyle(part, val);
@@ -503,8 +524,7 @@ function createatom(id) {
                     part[1] = 'auto';
                     val = part[1];
                     addstyle(part, val);
-                }
-                else if (part[0] == "absolute") {
+                } else if (part[0] == "absolute") {
                     if (part[1] !== undefined) {
                         if (part[2] !== undefined) {
                             part[3] = part[2];
@@ -517,7 +537,7 @@ function createatom(id) {
                     part[1] = 'absolute';
                     val = part[1];
                     addstyle(part, val);
-                }  else if (part[0] == "fixed") {
+                } else if (part[0] == "fixed") {
                     if (part[1] !== undefined) {
                         if (part[2] !== undefined) {
                             part[3] = part[2];
