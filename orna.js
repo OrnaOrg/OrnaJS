@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 1.6.0
+//version ornajs 1.7.0
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -224,7 +224,7 @@ function createatom(id) {
                         }
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border-left" && val !== "none" || part[0] == "bl" && val !== "none") {
+                } else if (part[0] == "border-left" && val !== "none" || part[0] == "b-l" && val !== "none") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-left need three values width, color and style");
@@ -242,7 +242,7 @@ function createatom(id) {
                         }
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border-right" && val !== "none" || part[0] == "br" && val !== "none") {
+                } else if (part[0] == "border-right" && val !== "none" || part[0] == "b-r" && val !== "none") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-right need three values width, color and style");
@@ -260,7 +260,7 @@ function createatom(id) {
                         }
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border-top" && val !== "none" || part[0] == "bt" && val !== "none") {
+                } else if (part[0] == "border-top" && val !== "none" || part[0] == "b-t" && val !== "none") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-top need three values width, color and style");
@@ -278,7 +278,7 @@ function createatom(id) {
                         }
                         addstyle(part, val);
                     }
-                } else if (part[0] == "border-bottom" && val !== "none" || part[0] == "bb" && val !== "none") {
+                } else if (part[0] == "border-bottom" && val !== "none" || part[0] == "b-b" && val !== "none") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
                             alert("Hi! I'm Orna! Atomic class border-bottom need three values width, color and style");
