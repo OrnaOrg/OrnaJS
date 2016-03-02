@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 1.7.0
+//version ornajs 1.8.0
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -189,21 +189,21 @@ function createatom(id) {
                 } else if (part[0] == "text-shadow") {
                     if (val !== undefined) {
                         if (part[2] === undefined || part[3] === undefined) {
-                            alert("Hi! I'm Orna! Atomic class text-shadow need five values: text-shadow_0_0_20px_10px_black");
+                            alert("Hi! I'm Orna! Atomic class text-shadow need four values: text-shadow_0_0_20px_black");
                         }
-                        part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4] + ' ' + part[5];
-                        if (part[6] !== undefined) {
-                            part[2] = part[6];
-                            if (part[7] !== undefined) {
-                                part[3] = part[7];
+                        part[1] = part[1] + ' ' + part[2] + ' ' + part[3] + ' ' + part[4];
+                        if (part[5] !== undefined) {
+                            part[2] = part[5];
+                            if (part[6] !== undefined) {
+                                part[3] = part[6];
                             } else {
                                 delete part[3];
                             }
                         } else {
                             delete part[2];
                         }
+                        delete part[3];
                         delete part[4];
-                        delete part[5];
                         addstyle(part, val);
                     }
                 } else if (part[0] == "border" && val !== "none" || part[0] == "b" && val !== "none") {
