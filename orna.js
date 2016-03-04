@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 1.8.0
+//version ornajs 2.0.0
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
     createatom();
@@ -100,7 +100,6 @@ function createatom(id) {
                                         } else {
                                             $(this).css(part[0], part[1]);
                                         }
-
                                     });
                                 } else if (part[3] == 'mouseout' || part[3] == 'out') {
                                     $(current + ' ' + part[2].replace(/this/, '')).on('mouseleave', function() {
@@ -706,9 +705,21 @@ function createatom(id) {
                     part[1] = 'block';
                     val = part[1];
                     addstyle(part, val);
-                }
-                /*---flexbox---*/
-                else if (part[0] == "flexstart-") {
+                } else if (part[0] == "toggle") {
+                    if (part[1] !== undefined) {
+                        $(current).click(function() {
+                            if (part[2] !== undefined) {
+                                $(part[1]).toggle(part[2]);
+                            } else {
+                                $(part[1]).toggle();
+                            }
+                        });
+                    } else {
+                        $(current).click(function() {
+                            $(current).toggle();
+                        });
+                    }
+                } else if (part[0] == "flexstart-") {
                     if (part[1] !== undefined) {
                         if (part[2] !== undefined) {
                             part[3] = part[2];
