@@ -16,7 +16,7 @@ Just plug jquery and orna files into your document
     <script src="jquery.js"></script>
     <script src="orna.js"></script>
     
-or **CDN**
+**CDN**
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ornajs/2.1.2/orna.js"></script>
