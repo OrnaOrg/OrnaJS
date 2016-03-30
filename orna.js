@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 2.1.2
+//version ornajs 2.2.5
 //bower install OrnaJS
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 function createatom(id) {
     if (id === undefined) {
-        var tag = ['div', 'body', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'pre', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section', 'hr', 'section', 'canvas', 'iframe', 'cite', 'abbr', 'acronym'];
+        var tag = ['body', 'div', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'pre', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section', 'hr', 'section', 'canvas', 'iframe', 'cite', 'abbr', 'acronym'];
         /*-----Scan-all-tags------------------------*/
         function toall(tag, tagsize) {
             for (var i = 0; i !== tagsize; i++) {
@@ -67,7 +67,15 @@ function createatom(id) {
                                     $(current).css(part[0], part[1]);
                                 });
                             } else {
-                                $(current + ' ' + part[2]).css(part[0], part[1]);
+                                if (part[2].search(/this/) == -1) {
+                                    if (part[2].search(/side/) !== -1) {
+                                        $(part[2].replace(/side/, '')).css(part[0], part[1]);
+                                    } else {
+                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                    }
+                                } else {
+                                    $(this).css(part[0], part[1]);
+                                }
                             }
                         }
                         /*----3--check-----*/
@@ -95,41 +103,81 @@ function createatom(id) {
                             } else {
                                 /*----4--check-----*/
                                 if (part[3] == 'mouseover' || part[3] == 'over') {
-                                    $(current + ' ' + part[2].replace(/this/, '')).on('mouseenter', function() {
+                                    var what = current + ' ' + part[2].replace(/this/, '');
+                                    if (part[2].search(/side/) !== -1) {
+                                        what = current;
+                                    }
+                                    $(what).on('mouseenter', function() {
                                         if (part[2].search(/this/) == -1) {
-                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            if (part[2].search(/side/) !== -1) {
+                                                $(part[2].replace(/side/, '')).css(part[0], part[1]);
+                                            } else {
+                                                $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            }
                                         } else {
                                             $(this).css(part[0], part[1]);
                                         }
                                     });
                                 } else if (part[3] == 'mouseout' || part[3] == 'out') {
-                                    $(current + ' ' + part[2].replace(/this/, '')).on('mouseleave', function() {
+                                    var what = current + ' ' + part[2].replace(/this/, '');
+                                    if (part[2].search(/side/) !== -1) {
+                                        what = current;
+                                    }
+                                    $(what).on('mouseleave', function() {
                                         if (part[2].search(/this/) == -1) {
-                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            if (part[2].search(/side/) !== -1) {
+                                                $(part[2].replace(/side/, '')).css(part[0], part[1]);
+                                            } else {
+                                                $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            }
                                         } else {
                                             $(this).css(part[0], part[1]);
                                         }
                                     });
                                 } else if (part[3] == 'focus') {
-                                    $(current + ' ' + part[2].replace(/this/, '')).on('focusin', function() {
+                                    var what = current + ' ' + part[2].replace(/this/, '');
+                                    if (part[2].search(/side/) !== -1) {
+                                        what = current;
+                                    }
+                                    $(what).on('focusin', function() {
                                         if (part[2].search(/this/) == -1) {
-                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            if (part[2].search(/side/) !== -1) {
+                                                $(part[2].replace(/side/, '')).css(part[0], part[1]);
+                                            } else {
+                                                $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            }
                                         } else {
                                             $(this).css(part[0], part[1]);
                                         }
                                     });
                                 } else if (part[3] == 'blur') {
-                                    $(current + ' ' + part[2].replace(/this/, '')).on('focusout', function() {
+                                    var what = current + ' ' + part[2].replace(/this/, '');
+                                    if (part[2].search(/side/) !== -1) {
+                                        what = current;
+                                    }
+                                    $(what).on('focusout', function() {
                                         if (part[2].search(/this/) == -1) {
-                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            if (part[2].search(/side/) !== -1) {
+                                                $(part[2].replace(/side/, '')).css(part[0], part[1]);
+                                            } else {
+                                                $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            }
                                         } else {
                                             $(this).css(part[0], part[1]);
                                         }
                                     });
                                 } else if (part[3] == 'click') {
-                                    $(current + ' ' + part[2].replace(/this/, '')).on('click', function() {
+                                    var what = current + ' ' + part[2].replace(/this/, '');
+                                    if (part[2].search(/side/) !== -1) {
+                                        what = current;
+                                    }
+                                    $(what).on('click', function() {
                                         if (part[2].search(/this/) == -1) {
-                                            $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            if (part[2].search(/side/) !== -1) {
+                                                $(part[2].replace(/side/, '')).css(part[0], part[1]);
+                                            } else {
+                                                $(current + ' ' + part[2]).css(part[0], part[1]);
+                                            }
                                         } else {
                                             $(this).css(part[0], part[1]);
                                         }
