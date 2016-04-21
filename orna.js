@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 2.3.0
+//version ornajs 2.3.5
 //bower install OrnaJS
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
@@ -555,10 +555,11 @@ function createatom(id) {
                         display: 'inline',
                         "overflow": 'hidden',
                         textAlign: 'center',
-                        border: '1px solid rgb(83, 2, 24)',
+                        border: '1px solid',
                         color: 'white',
                         backgroundColor: '#ee0645',
-                        padding: '10px'
+                        padding: '10px',
+                        cursor: 'pointer'
                     };
                     addpack(pack);
                 }
@@ -957,5 +958,14 @@ function createatom(id) {
                 }
             }
         }
+    }
+    //--Add-move-(to-live)-
+    if($('.orna-btn').length>0){
+        $('.orna-btn').on('mouseover', function(){
+           $(this).css('background-color', 'rgb(83, 2, 24)'); 
+        });
+        $('.orna-btn').on('mouseleave', function(){
+           $(this).css('background-color', '#ee0645'); 
+        });
     }
 }
