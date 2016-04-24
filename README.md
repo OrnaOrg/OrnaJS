@@ -18,8 +18,8 @@ Just plug jquery and orna files into your document
     
 **CDN**
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ornajs/2.1.2/orna.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ornajs/2.3.0/orna.min.js"></script>
     
 Then you can write CSS properties like classes in the class attribute
 

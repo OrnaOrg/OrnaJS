@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 2.3.5
+//version ornajs 2.3.7
 //bower install OrnaJS
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
@@ -559,7 +559,8 @@ function createatom(id) {
                         color: 'white',
                         backgroundColor: '#ee0645',
                         padding: '10px',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        outline: 'none'
                     };
                     addpack(pack);
                 }
@@ -770,6 +771,19 @@ function createatom(id) {
                     }
                     part[0] = 'display';
                     part[1] = 'inline';
+                    val = part[1];
+                    addstyle(part, val);
+                } else if (part[0] == "none") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'display';
+                    part[1] = 'none';
                     val = part[1];
                     addstyle(part, val);
                 } else if (part[0] == "block") {
