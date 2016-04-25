@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 2.3.7
+//version ornajs 2.4.0
 //bower install OrnaJS
 /*------------------createatom();----Main-and-singular-function---------------------*/
 $(document).ready(function() {
@@ -628,6 +628,19 @@ function createatom(id) {
                     }
                     part[0] = 'position';
                     part[1] = 'fixed';
+                    val = part[1];
+                    addstyle(part, val);
+                } else if (part[0] == "relative") {
+                    if (part[1] !== undefined) {
+                        if (part[2] !== undefined) {
+                            part[3] = part[2];
+                            part[2] = part[1];
+                        } else {
+                            part[2] = part[1];
+                        }
+                    }
+                    part[0] = 'position';
+                    part[1] = 'relative';
                     val = part[1];
                     addstyle(part, val);
                 } else if (part[0] == "textincenter") {
