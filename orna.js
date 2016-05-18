@@ -1,8 +1,8 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 2.5.0
+//version ornajs 2.6.0
 //bower install OrnaJS
-/*------------------createatom();----Main-and-singular-function---------------------*/
+/*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
     createatom();
 });
@@ -1055,3 +1055,43 @@ $(window).resize(function() {
     createatom('.window-X');
     createatom('.window-Y');
 });
+//------------------------------------------
+function findmin(arr) {
+    var min;
+    min = arr[0];
+    for (var i = 0; i !== arr.length; i++) {
+        if (min > arr[i]) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+function findmax(arr) {
+    var min;
+    min = arr[0];
+    for (var i = 0; i !== arr.length; i++) {
+        if (min < arr[i]) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+function checkit(elem, reg, color1, color2, length) {
+    $(elem).on('change', function() {
+        if ($(this).val().search(reg) != -1) {
+            $(this).css('border-color', color1);
+            $(this).val('');
+            $(this).attr('placeholder', 'Only numbers!');
+        } else if ($(this).val().length == 0) {
+            $(this).css('border-color', color1);
+            $(this).val('');
+            $(this).attr('placeholder', 'Empty!');
+        } else {
+            if ($(this).val().length == length) {
+                $(this).css('border-color', color2);
+            }
+        }
+    });
+}
