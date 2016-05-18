@@ -11,7 +11,7 @@ Orna is good tool that atomize your css. It's parser and web framework.
 
 **How Orna work?**
 
-1. Just plug jquery and orna files into your document
+1.Just plug jquery and orna files into your document
 
     <script src="jquery.js"></script>
     <script src="orna.js"></script>
@@ -21,7 +21,7 @@ Orna is good tool that atomize your css. It's parser and web framework.
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ornajs/2.5.0/orna.min.js"></script>
     
-2. Then you can write CSS properties like classes in the class attribute
+2.Then you can write CSS properties like classes in the class attribute
 
     <div class="height_100px bgc_black color_white">
     Hello! If this block black and string is white it means that Orna is ready!

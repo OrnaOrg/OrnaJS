@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Orna is the good js tool, designed for atomize Web UI.">
+    <meta name="keywords" content="Orna, JS, Atomic, CSS, UI, UX, Web">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrnaJS</title>
+    <script src="jquery.min.js"></script>
+    <script src="orna.min.js"></script>
+    <link rel="icon" href="img/icon.png"> </head>
+
+<body class="min-width_730px  background-color_white Arial margin_0">
+   
+    <div class="bgc_white bgc_rgba(255,255,255,0.85) textincenter h_400px overflow_hidden"><br>
+        <div class="width_50%  max-width_700px margin_auto padding_20px"> <img src="img/ornaname.png" class="width_100% scale_0.7_mouseover scale_1_mouseout  transition_all_0.5s_linear_0.5s">
+
+        </div>
+        <h1 class="fw_normal fs_21px c_black opacity_0.5">Decorate web page without directly writing CSS and JavaScript.<br><br>  OrnaJS is a tool that provide work by the <a href="http://acss.io/thinking-in-atomic.html" class="c_#ee0645 td_none">Atomic CSS</a> and <a href="https://andreypopp.com/posts/2014-08-06-react-style.html" class="c_#ee0645 td_none">React CSS</a><br> methodology for styling the page in a Single page application.</h1>
+     
+        
+             </div><br>
+       </div>
+    <div class="background-color_rgb(245,245,245) bgi_url(img/atom.png)">
+        <br>
+        <br>
+        <div class="width_50% max-width_700px padding_20px background_rgba(90,90,90,0.7) color_#530218 font-size_20px margin_auto rotate_4deg border_2px_solid_white">
+            <div class="background_rgb(255,255,255) padding_20px shadow">
+                <h3 class="Times">What is Orna?</h3> <a href="https://github.com/OrnaOrg/OrnaJS" class="color_#ee0645 text-decoration_none">Orna</a> is good Atomic CSS tool, designed for atomize Web UI. Also perfect for SPA(single page application) or like additional.
+                <br>
+                <br><span class="color_black">Atomic CSS</span> is a model or style of coding where each of properties have own style classes.
+                <br>
+                <br><span class="color_black">Atomic CSS</span> is good for fast creation the readable and easy changeable User Interface.</div>
+        </div>
+        <br>
+        <br>
+        <div class="width_50% max-width_700px padding_20px background_rgba(90,90,90,0.7) color_#530218 font-size_20px margin_auto rotate_-4deg border_2px_solid_white">
+            <div class="background_rgb(255,255,255) padding_20px shadow">
+                <h3 class="Times">What Orna do?</h3> If you plug orna.js into HTML document you will have a new skill that gives you write css properties with values in class attribute and it will means class and property in one and we will call it <span class="color_black">atom</span>. You can write properties with few value and that calls <span class="color_black">molecules</span>. Molecules make your work easy when properties have many value. It's better than style attribute, because you have events and inheritance.</div>
+        </div>
+        <br>
+        <br>
+        <div class="width_50% max-width_700px padding_20px background_rgba(90,90,90,0.7) color_#530218 font-size_20px margin_auto rotate_4deg border_2px_solid_white">
+            <div class="background_rgb(255,255,255) padding_20px shadow">
+                <h3 class="Times">How Orna work?</h3> Just write CSS properties into the class attribute then write underscore and value. <span class="color_#ee0645">Orna</span> scan the html document, find atoms and define it directly to the element. Event you can create with <a href="http://jquery.com" class="text-decoration_none color_#0769AD">jQuery</a> functions <span class="color_black">addClass()</span>, <span class="color_black">removeClass()</span> and use onclick, onmouseover, onfocus, onblur and other. Or simply add Orna tail to the class name like: <span class="color_black">mouseover, mouseout, focus, blur, click. (width_100px_click, property_value_event)</span>
+            </div>
+        </div>
+        <br>
+        <br> </div>
+    <div class="text-align_center">
+      <br>
+      <br>
+       <span class="font-size_20px arial c_red">Actual Info for version 1.8.0 and more!!!</span>
+        <br>
+        <br>
+        <span class="font-size_20px arial">Examples</span>
+        <br>
+        <br> Similar action with style attribute, clear jQuery and jQuery with OrnaJS.
+        <br>
+        <br>
+        <p class="bg_lightblue margin_0 width_40% min-width_550px padding_10px border_thin_black_solid margin_auto ">Inline style attribute</p>
+        <textarea class="width_40% min-width_550px  overflow_hidden padding_10px display_block margin_auto bgc_white border_thin_black_solid" disabled>
+            <div style="background-color:black; background-image:url(...); color:white;">Style Attr</div>
+        </textarea>
+        <br>
+        <br>
+        <p class="bg_#F9a8be min-width_550px  margin_0 width_40% padding_10px border_thin_black_solid margin_auto">Orna</p>
+
+        <textarea class="width_40% min-width_550px  overflow_hidden padding_10px display_block margin_auto bgc_white border_thin_black_solid" disabled>
+            <div class="bgc_black bgi_url(...) c_white">Orna</div>
+
+        </textarea>
+        <br>
+        <br>
+        <p class="bg_lightblue margin_0 width_40% min-width_550px  padding_10px border_thin_black_solid margin_auto">jQuery</p>
+        <textarea class="width_40% min-width_550px  overflow_hidden padding_10px display_block margin_auto  height_160px bgc_white border_thin_black_solid" disabled>
+            <div class="name">jQuery</div>
+
+            <script>
+                $('.name').click(function() {
+
+                    $('.name').css('height', '100px');
+
+                });
+            </script>
+        </textarea>
+        <br>
+        <br>
+        <p class="bg_#F9a8be margin_0 width_40% min-width_550px  padding_10px border_thin_black_solid  margin_auto">Orna</p>
+
+        <textarea class="width_40% min-width_550px  overflow_hidden padding_10px display_block margin_auto bgc_white border_thin_black_solid" disabled>
+            <div class="h_100px_click">Orna</div>
+
+        </textarea>
+        <br>
+        <br>
+        <p class="bg_lightblue margin_0 width_40% min-width_550px  padding_10px border_thin_black_solid margin_auto">JavaScript</p>
+        <textarea class="width_40% min-width_550px  overflow_hidden padding_10px display_block margin_auto  height_160px bgc_white border_thin_black_solid" disabled>
+            <div id="a">JavaScript</div>
+
+            <script>
+                a.style.height = "100px";
+                a.style.backgroundColor = "red";
+            </script>
+        </textarea>
+        <br>
+        <br>
+        <p class="bg_#F9a8be margin_0 width_40% min-width_550px  padding_10px border_thin_black_solid  margin_auto">Orna</p>
+
+        <textarea class="width_40% min-width_550px  overflow_hidden padding_10px display_block margin_auto bgc_white border_thin_black_solid" disabled>
+            <div class="h_100px bgc_red">Orna</div>
+        </textarea>
+        <br>
+        <br>
+        <br> <code class="height_100px color_black">
+        <a id="how"></a>
+<span class="font-size_20px arial">Quick start</span><br><br>
+<div class="background-color_rgb(245,245,245) padding_30px">
+<a href="https://github.com/OrnaOrg/OrnaJS" class="color_#ee0645 text-decoration_none bgc_white bgc_black_mouseover bgc_white_mouseout padding_10px border_gray_solid_thin font-size_16px">Download OrnaJS</a>
+
+<br>
+<br>
+<br>
+Plug jQuery and Orna to the head of HTML document and write CSS properties as classes into class attribute, just use underscore _ as separator.<br>
+It's better than style attribute, because you have good jquery API for manipulation with classes, events and inheritance.<br><br>
+<br>
+    <strong><a href="https://cdnjs.com/libraries/ornajs" class=" c_black td_none fs_16px">CDN</a></strong><br>
+ <textarea class="w_650px h_60px fs_12px background-color_rgb(245,245,245) border_none overflow_hidden bgc_white" readonly>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ornajs/2.3.0/orna.min.js"></script>
+</textarea>
+ </div><br><br>
+  <span class="font-size_20px arial">Structure</span><br><br>
+  <div class="width_20% min-width_300px max-width_500px border_thin_solid_#ee0645 center padding_10px">property_value<br><br>
+                color_red
+                </div><br>
+                 <div class="width_20% min-width_300px max-width_500px border_thin_solid_#ee0645 center padding_10px">property_value_event<br><br>
+                 color_red_click</div><br>
+  <div class="width_20% min-width_300px max-width_500px border_thin_solid_#ee0645 center padding_10px">property_value_childtagname<br><br>
+  color_red_div</div><br>
+  <div class="width_20% min-width_300px max-width_500px border_thin_solid_#ee0645 center padding_10px">property_value_event_childtagname<br><br>
+  color_red_click_div</div><br>
+  <div class="width_20% min-width_300px max-width_500px border_thin_solid_#ee0645 center padding_10px">property_value_childtagname_event<br><br>
+  color_red_div_click</div><br><br>
+  <div class="width_500px ta_left color_white bgc_#ee0645 max-width_500px border_thin_solid_gray center padding_20px">Also you can use tagname, #id or .class of child element as selector.<br><br>
+  color_red_childtagname<br><br>
+   color_red_#id<br><br>
+  color_red_.class<br><br><hr><br>
+  For current element, use "this"!<br>(bgc_red_thisdiv_click)
+  <br><br><hr><br>
+See also :even or :odd! <br>(bgc_red_div:even_click, bgc_red_thisdiv:even_click)<br>(bgc_red_div:odd_click, bgc_red_thisdiv:odd_click) <br><br><hr><br>
+See also :first or :last!<br>(bgc_red_div:first_click, bgc_red_thisdiv:first_click)<br>(bgc_red_div:last_click, bgc_red_thisdiv:last_click)<br><br><hr><br>
+<div class="textincenter">
+ <a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" class="color_#ee0645 text-decoration_none bgc_black bgc_black_mouseout bgc_white_mouseover tran_background-color_0.3s_linear_0.2s padding_10px border_gray_solid_thin font-size_16px">More</a></div>
+ <br>
+  </div><br><br>  <hr class="c_#ee0645 bg_#ee0645 width_80%" size="3">
+  <br><br>
+  <span class="font-size_20px arial">Events</span><br><br>
+  <div class="text-align_left">
+      <ul class="width_300px arial fs_18px center">
+          <li>mouseover or just over<br> <span class="c_#ee0645">(color_red_mouseover)</span>
+          <br>
+          <span class="c_#ee0645">(color_red_over)</span></li><br>
+          <li>mouseout or just out<br>  <span class="c_#ee0645">(color_red_mouseout)</span>
+            <br>
+          <span class="c_#ee0645">(color_red_out)</span></li><br>
+          <li>blur<br>  <span class="c_#ee0645">(color_red_blur)</span></li><br>
+          <li>focus<br> <span class="c_#ee0645">(color_red_focus)</span></li><br>
+          <li>click<br>  <span class="c_#ee0645">(color_red_click)</span></li><br>
+      </ul>
+
+
+  </div>
+  <br><br>
+  <hr class="c_#ee0645 bg_#ee0645 width_80%" size="3">
+  <br>  <br> <br>
+   <span class="font-size_20px arial">CSS properties like classes</span><br><br>
+    <span class="font-size_15px background_#F9a8be color_black">class="background-color_black width_50% height_100px margin_5px padding_4px border_4px_solid_red"</span><br>
+                   Just write css property and value only change ':' to '_'.<br><br> <br><br> <hr class="c_#ee0645 bg_#ee0645 width_80%" size="3"><br><br>
+                    <span class="font-size_20px arial">Abbreviated name (You can use right or left name)</span><br><br>
+
+                <div class="center overflow_hidden width_730px">
+
+         <div class="float_left  overflow_hidden width_410px bg_#F9a8be padding_5px font-size_15px">
+         background_white<br>
+         background-color_white<br>
+         background-image_url()<br>
+         background-size_cover<br>
+         background-position_center<br>
+         background-repeat_no-repeat<br>
+         background-attachment_fixed<br>
+         transform_rotate(60deg)<br>
+         transform_skew(20deg)<br>
+         transform_scale(2)<br>
+         transition_all_1s_ease_0.5s<br>
+         color_red<br>
+         height_100px<br>
+         width_100px<br>
+         margin_10px<br>
+         margin-left_10px<br>
+         padding_10px<br>
+         padding-left_10px<br>
+         border_2px_solid_black<br>
+         border-left_2px_solid_black<br>
+         border-radius_10px<br>
+         font-family_Arial<br>
+         font-weight_bold<br>
+         font-size_20px<br>
+         text-decoration_none<br>
+         text-align_center<br>
+         display_block<br>
+         box-shadow_0_0_20px_0_black<br>
+
+         </div>
+         <div class="float_left  overflow_hidden bg_white padding_5px font-size_15px width_40px">
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =<br>
+         =</div>
+         <div class="float_left  overflow_hidden bg_lightblue padding_5px font-size_15px width_250px">
+         bg_white<br>
+         bgc_white<br>
+         bgi_url()<br>
+         bgs_cover<br>
+         bgp_center<br>
+         bgr_no-repeat<br>
+         bga_fixed<br>
+         rotate_60deg<br>
+         skew_20deg<br>
+         scale_2<br>
+         tran_all_1s_ease_0.5s<br>
+         c_red<br>
+         h_100px<br>
+         w_100px<br>
+         m_10px<br>
+         ml_10px<br>
+         p_10px<br>
+         pl_10px<br>
+         b_2px_solid_black<br>
+         b-l_2px_solid_black<br>
+         br_10px<br>
+         ff_Arial<br>
+         fw_bold<br>
+         fs_20px<br>
+         td_none<br>
+         ta_center<br>
+         d_block<br>
+         shadow_0_0_20px_0_black<br>
+</div>
+     </div>
+
+      <br>
+
+      <br>
+
+     <div class="textincenter font-size_16px">
+                                   <span class="font-size_20px arial">Extremely verbose</span><br><br>
+
+         <span class="c_#ee0645">In CSS:</span> border-top-left-radius:20px, <span class="c_#ee0645">in OrnaJS:</span> btlr_20px or same as: border-top-left-radius_20px
+
+     </div>
+      <br>
+      <br>
+        <hr class="c_#ee0645 bg_#ee0645 width_80%" size="3">
+
+      <br>
+       <br>
+
+      <span class="font-size_20px arial">Special classes</span><br><br>
+
+<div class="text-align_left">
+  <ol class="margin_auto width_400px color_#ee0645">
+ <li><span class="color_black">Arial, arial <span class="color_#ee0645">- font</span></span></li><br><br>
+  <li><span class="color_black">Times, times, TimesNewRoman <span class="color_#ee0645">- font</span></span></li><br><br>
+  <li><span class="color_black">center <span class="color_#ee0645">- block elements in center by x axis</span></span></li><br><br>
+  <li><span class="color_black">textincenter <span class="color_#ee0645">- text and inline elements in center by x axis</span></span></li><br><br>
+  <li><span class="color_black">none <span class="color_#ee0645">- display = none</span></span></li><br><br>
+  <li><span class="color_black">block <span class="color_#ee0645">- block element</span></span></li><br><br>
+  <li><span class="color_black">inline <span class="color_#ee0645">- inline element</span></span></li><br><br>
+  <li><span class="color_black">inlineblock <span class="color_#ee0645">- inline-block element</span></span></li><br><br>
+  <li><span class="color_black">uppercase <span class="color_#ee0645">- text in uppercase</span></span></li><br><br>
+  <li><span class="color_black">lowercase <span class="color_#ee0645">- text in lowercase</span></span></li><br><br>
+  <li><span class="color_black">capitalize <span class="color_#ee0645">- first symbol in uppercase</span></span></li><br><br>
+  <li><span class="color_black">hideatom <span class="color_#ee0645">- use for hide element from Orna, must be first in class attribute</span></span></li><br><br>
+  <li><span class="color_black">flexcenter-, flexstart-, flexend-, spacebetween, spacearound, flexcenter|, flexstart|, flexend|, baseline, stretch <span class="color_#ee0645">- use for flexbox</span></span></li><br><br>
+  <li><span class="color_black">relative<span class="color_#ee0645"> - position: relative</span></span></li><br><br>
+  <li><span class="color_black">fixed<span class="color_#ee0645"> - position: fixed</span></span></li><br><br>
+  <li><span class="color_black">absolute<span class="color_#ee0645"> - position: absolute</span></span></li><br><br>
+  <li><span class="color_black">linear, ease, ease-in, ease-out, ease-in-out<span class="color_#ee0645"> - default transition</span></span></li><br><br>
+  <li><span class="color_black">ornahelp <span class="color_#ee0645"> - view the orna help info</span></span></li><br><br>
+  <li><span class="color_black">clean, clear <span class="color_#ee0645"> - reset CSS properties top, bottom, left and right to 0</span></span></li><br><br>
+  <li><span class="color_black">orna-btn <span class="color_#ee0645"> - decorate the block, like simple button</span></span></li><br><br>
+  <li><span class="color_black">screen-x, screen-X, screen-y, screen-Y <span class="color_#ee0645"> - assign screen width and height as element size</span></span></li><br><br>
+  <li><span class="color_black">window-x, window-X, window-y, window-Y <span class="color_#ee0645"> - assign current window width and height as element size</span></span></li><br><br>
+
+
+</ol>
+  </div>
+
+      <br>
+
+      <span class="font-size_20px arial"><span class="c_red">!!!</span>Always take the latest version!</span><br><br> <span class="font-size_20px arial"><span class="c_red">!!!</span>The priority in OrnaJS added to class that was written last(final). Like class="height_100px height_200px" the height of element will be 200px!</span><br><br>
+       <span class="font-size_20px arial"><span class="c_red">!!!</span>You can use abbreviated name, molecules with events and inheritance, but not all!</span>
+      <br> <br>
+        <span class="font-size_20px arial"><span class="c_red">!!!</span>You can use prefix "this", like (<span class="c_red">height_200px_thisdiv_click</span>)!</span> <br> <br>
+        <span class="font-size_20px arial"><span class="c_red">!!!</span>If you want decorate outside element not a child, use prefix "side", like (<span class="c_red">height_200px_side#id_click</span>)!</span>
+      <br> <br> 
+        <span class="font-size_20px arial"><span class="c_red">!!!</span>Write Orna classes without whitespace. Whitespace used, like separator between classes.</span>
+      <br> <br>
+      <br> <br>
+    <div class="background-color_rgb(245,245,245) ">
+       <br>
+      <br>
+      <span class="font-size_20px arial">OrnaJS functions for Atomize</span><br><br>
+
+<div class="text-align_left">
+  <ol class="margin_auto width_400px color_#ee0645 list-style_none">
+      <li><span class="color_black"><span class="c_rgb(83,2,24)">createatom();</span> - Main Orna function, it's run automatically when document is ready, you can call it with arguments like #id, .class and tag name for render a special element. It's useful when you need dynamically update your page or element.<br><br>
+
+       Looks Like:</span> createatom('<span class="color_black">#id</span>');</li><br>
+      <li><span class="color_black"><span class="c_rgb(83,2,24)">findmin(), findmax();</span> - functions, which find the minimal and maximal value in numeric array.<br><br>
+        <span class="color_#ee0645">findmin(array);</span>
+        </li><br>
+      <li><span class="color_black"><span class="c_rgb(83,2,24)">checkit();</span> - function, that check input field. checkit(element, regexp, color1, color2, length);
+        <br> <br> <span class="color_#ee0645">checkit("input", /[a-zA-Zа-яА-Я]+/, "red", "blue", 13);</span></li><br>
+       </ol><br>
+
+    </div>
+  
+
+    </div>
+    <br>
+   
+ 
+</body>
+
+
+</html>
