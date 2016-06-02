@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 2.6.0
+//version ornajs 2.6.5
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
@@ -565,7 +565,13 @@ function createatom(id) {
                             addpack(pack);
                         }
                         /*--------------Special-classes---------------*/
-                        if (part[0] == "screenX" || part[0] == "screen-X" || part[0] == "screenx" || part[0] == "screen-x") {
+                        if (part[0] == "pointfollow") {
+                            point_follow();
+                            part[0] = 'position';
+                            part[1] = 'absolute';
+                            val = part[1];
+                            addstyle(part, val);
+                        } else if (part[0] == "screenX" || part[0] == "screen-X" || part[0] == "screenx" || part[0] == "screen-x") {
                             if (part[1] !== undefined) {
                                 if (part[2] !== undefined) {
                                     part[3] = part[2];
@@ -1055,7 +1061,20 @@ $(window).resize(function() {
     createatom('.window-X');
     createatom('.window-Y');
 });
-//------------------------------------------
+//-Pointer-follower--
+function point_follow() {
+        $('.pointfollow').on('mousedown', function(event) {
+            var thisel = this;
+            $(document).on('mousemove', function(event) {
+                $(thisel).css('left', event.pageX + 'px');
+                $(thisel).css('top', event.pageY + 'px');
+            });
+            $(document).on('mouseup', function() {
+                $(this).unbind('mousemove');
+            });
+        });
+    }
+    //------------------------------------------
 function findmin(arr) {
     var min;
     min = arr[0];
