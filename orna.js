@@ -1,12 +1,14 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 2.6.5
+//version ornajs 2.6.6
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
     createatom();
 });
-
+function createAtom(id){
+    createatom(id);
+}
 function createatom(id) {
         if (id === undefined) {
             var tag = ['body', 'div', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'pre', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section', 'hr', 'section', 'canvas', 'iframe', 'cite', 'abbr', 'acronym'];
