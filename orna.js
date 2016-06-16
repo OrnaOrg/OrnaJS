@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 2.6.6
+//version ornajs 3.0.0
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
@@ -52,19 +52,30 @@ function createatom(id) {
                                 }
                                 /*----2--check------*/
                                 else if (part[2] !== undefined && part[3] === undefined) {
-                                    if (part[2] == 'mouseover' || part[2] == 'over') {
+                                    if (part[2] == 'mouseover' || part[2] == 'over' || part[2] == 'mouseenter') {
                                         $(current).on('mouseenter', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'mouseout' || part[2] == 'out') {
+                                    } else if (part[2] == 'mouseout' || part[2] == 'out'|| part[2] == 'mouseleave') {
                                         $(current).on('mouseleave', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'focus') {
+                                    }
+                                     else if (part[2] == 'mousedown' || part[2] == 'down') {
+                                        $(current).on('mousedown', function() {
+                                            $(current).css(part[0], part[1]);
+                                        });
+                                    }
+                                    else if (part[2] == 'mouseup' || part[2] == 'up') {
+                                        $(current).on('mouseup', function() {
+                                            $(current).css(part[0], part[1]);
+                                        });
+                                    }
+                                    else if (part[2] == 'focus' || part[2] == 'focusin' ) {
                                         $(current).on('focusin', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'blur') {
+                                    } else if (part[2] == 'blur'  || part[2] == 'focusout') {
                                         $(current).on('focusout', function() {
                                             $(current).css(part[0], part[1]);
                                         });
@@ -72,7 +83,9 @@ function createatom(id) {
                                         $(current).on('click', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    } else {
+                                    }
+                                   
+                                    else {
                                         if (part[2].search(/this/) == -1) {
                                             if (part[2].search(/side/) !== -1) {
                                                 $(part[2].replace(/side/, '')).css(part[0], part[1]);
@@ -86,19 +99,29 @@ function createatom(id) {
                                 }
                                 /*----3--check-----*/
                                 else if (part[2] !== undefined && part[3] !== undefined) {
-                                    if (part[2] == 'mouseover' || part[2] == 'over') {
+                                    if (part[2] == 'mouseover' || part[2] == 'over'|| part[2] == 'mouseenter') {
                                         $(current).on('mouseenter', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'mouseout' || part[2] == 'out') {
+                                    } else if (part[2] == 'mouseout' || part[2] == 'out'|| part[2] == 'mouseleave') {
                                         $(current).on('mouseleave', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'focus') {
+                                    } else if (part[2] == 'mousedown' || part[2] == 'down') {
+                                        $(current).on('mousedown', function() {
+                                            $(current + ' ' + part[3]).css(part[0], part[1]);
+                                        });
+                                    }
+                                    else if (part[2] == 'mouseup' || part[2] == 'up') {
+                                        $(current).on('mouseup', function() {
+                                            $(current + ' ' + part[3]).css(part[0], part[1]);
+                                        });
+                                    }
+                                    else if (part[2] == 'focus' || part[2] == 'focusin') {
                                         $(current).on('focusin', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'blur') {
+                                    } else if (part[2] == 'blur' || part[2] == 'focusout') {
                                         $(current).on('focusout', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
@@ -108,7 +131,7 @@ function createatom(id) {
                                         });
                                     } else {
                                         /*----4--check-----*/
-                                        if (part[3] == 'mouseover' || part[3] == 'over') {
+                                        if (part[3] == 'mouseover' || part[3] == 'over' || part[3] == 'mouseenter') {
                                             var what = current + ' ' + part[2].replace(/this/, '');
                                             if (part[2].search(/side/) !== -1) {
                                                 what = current;
@@ -124,7 +147,7 @@ function createatom(id) {
                                                     $(this).css(part[0], part[1]);
                                                 }
                                             });
-                                        } else if (part[3] == 'mouseout' || part[3] == 'out') {
+                                        } else if (part[3] == 'mouseout' || part[3] == 'out'|| part[3] == 'mouseleave') {
                                             var what = current + ' ' + part[2].replace(/this/, '');
                                             if (part[2].search(/side/) !== -1) {
                                                 what = current;
@@ -140,7 +163,42 @@ function createatom(id) {
                                                     $(this).css(part[0], part[1]);
                                                 }
                                             });
-                                        } else if (part[3] == 'focus') {
+                                        }
+                                        else if (part[3] == 'mousedown' || part[3] == 'down') {
+                                            var what = current + ' ' + part[2].replace(/this/, '');
+                                            if (part[2].search(/side/) !== -1) {
+                                                what = current;
+                                            }
+                                            $(what).on('mousedown', function() {
+                                                if (part[2].search(/this/) == -1) {
+                                                    if (part[2].search(/side/) !== -1) {
+                                                        $(part[2].replace(/side/, '')).css(part[0], part[1]);
+                                                    } else {
+                                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                                    }
+                                                } else {
+                                                    $(this).css(part[0], part[1]);
+                                                }
+                                            });
+                                        }  else if (part[3] == 'mouseup' || part[3] == 'up') {
+                                            var what = current + ' ' + part[2].replace(/this/, '');
+                                            if (part[2].search(/side/) !== -1) {
+                                                what = current;
+                                            }
+                                            $(what).on('mouseup', function() {
+                                                if (part[2].search(/this/) == -1) {
+                                                    if (part[2].search(/side/) !== -1) {
+                                                        $(part[2].replace(/side/, '')).css(part[0], part[1]);
+                                                    } else {
+                                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                                    }
+                                                } else {
+                                                    $(this).css(part[0], part[1]);
+                                                }
+                                            });
+                                        } 
+                                        
+                                        else if (part[3] == 'focus' || part[3] == 'focusin') {
                                             var what = current + ' ' + part[2].replace(/this/, '');
                                             if (part[2].search(/side/) !== -1) {
                                                 what = current;
@@ -156,7 +214,7 @@ function createatom(id) {
                                                     $(this).css(part[0], part[1]);
                                                 }
                                             });
-                                        } else if (part[3] == 'blur') {
+                                        } else if (part[3] == 'blur' || part[3] == 'focusout') {
                                             var what = current + ' ' + part[2].replace(/this/, '');
                                             if (part[2].search(/side/) !== -1) {
                                                 what = current;
