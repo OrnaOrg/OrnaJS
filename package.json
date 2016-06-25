@@ -1,6 +1,6 @@
 {
   "name": "ornajs",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "OrnaJS is a tool for creation Atomic CSS. Framework and parser. Orna lightweight, clear and easy. It works with jQuery.",
   "main": "orna.js",
   "repository": {
@@ -22,5 +22,5 @@
   "author": "Dima Popov",
   "license": "MIT",
   "homepage": "http://ornaorg.github.io",
-  "dependencies" : { "jquery" : ">=2.2.0" }
+  "dependencies" : { "jquery" : ">=1.8.0" }
 }

@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 3.1.0
+//version ornajs 3.1.1
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
