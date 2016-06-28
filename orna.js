@@ -1,14 +1,16 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 3.1.1
+//version ornajs 3.1.5
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
     createatom();
 });
-function createAtom(id){
+
+function createAtom(id) {
     createatom(id);
 }
+
 function createatom(id) {
         if (id === undefined) {
             var tag = ['body', 'div', 'p', 'form', 'button', 'img', 'input', 'a', 'ul', 'ol', 'li', 'select', 'option', 'span', 'table', 'td', 'tr', 'th', 'tbody', 'thead', 'tfoot', 'main', 'nav', 'menu', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'textarea', 'fieldset', 'header', 'footer', 'code', 'pre', 'video', 'audio', 'aside', 'article', 'address', 'blockquote', 'label', 'strong', 'i', 'legend', 'caption', 'big', 'small', 'noscript', 'progress', 'section', 'hr', 'section', 'canvas', 'iframe', 'cite', 'abbr', 'acronym'];
@@ -23,11 +25,10 @@ function createatom(id) {
                 }
             }
             for (var i = 0; i !== tag.length; i++) {
-                try{
-                var tagsize = $(tag[i]).size();
-                }
-                catch(e){
-                 var tagsize = $(tag[i]).length;
+                try {
+                    var tagsize = $(tag[i]).size();
+                } catch (e) {
+                    var tagsize = $(tag[i]).length;
                 }
                 toall(tag[i], tagsize);
             }
@@ -61,26 +62,23 @@ function createatom(id) {
                                         $(current).on('mouseenter', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'mouseout' || part[2] == 'out'|| part[2] == 'mouseleave') {
+                                    } else if (part[2] == 'mouseout' || part[2] == 'out' || part[2] == 'mouseleave') {
                                         $(current).on('mouseleave', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    }
-                                     else if (part[2] == 'mousedown' || part[2] == 'down') {
+                                    } else if (part[2] == 'mousedown' || part[2] == 'down') {
                                         $(current).on('mousedown', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    }
-                                    else if (part[2] == 'mouseup' || part[2] == 'up') {
+                                    } else if (part[2] == 'mouseup' || part[2] == 'up') {
                                         $(current).on('mouseup', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    }
-                                    else if (part[2] == 'focus' || part[2] == 'focusin' ) {
+                                    } else if (part[2] == 'focus' || part[2] == 'focusin') {
                                         $(current).on('focusin', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'blur'  || part[2] == 'focusout') {
+                                    } else if (part[2] == 'blur' || part[2] == 'focusout') {
                                         $(current).on('focusout', function() {
                                             $(current).css(part[0], part[1]);
                                         });
@@ -88,9 +86,7 @@ function createatom(id) {
                                         $(current).on('click', function() {
                                             $(current).css(part[0], part[1]);
                                         });
-                                    }
-                                   
-                                    else {
+                                    } else {
                                         if (part[2].search(/this/) == -1) {
                                             if (part[2].search(/side/) !== -1) {
                                                 $(part[2].replace(/side/, '')).css(part[0], part[1]);
@@ -104,11 +100,11 @@ function createatom(id) {
                                 }
                                 /*----3--check-----*/
                                 else if (part[2] !== undefined && part[3] !== undefined) {
-                                    if (part[2] == 'mouseover' || part[2] == 'over'|| part[2] == 'mouseenter') {
+                                    if (part[2] == 'mouseover' || part[2] == 'over' || part[2] == 'mouseenter') {
                                         $(current).on('mouseenter', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
-                                    } else if (part[2] == 'mouseout' || part[2] == 'out'|| part[2] == 'mouseleave') {
+                                    } else if (part[2] == 'mouseout' || part[2] == 'out' || part[2] == 'mouseleave') {
                                         $(current).on('mouseleave', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
@@ -116,13 +112,11 @@ function createatom(id) {
                                         $(current).on('mousedown', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
-                                    }
-                                    else if (part[2] == 'mouseup' || part[2] == 'up') {
+                                    } else if (part[2] == 'mouseup' || part[2] == 'up') {
                                         $(current).on('mouseup', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
-                                    }
-                                    else if (part[2] == 'focus' || part[2] == 'focusin') {
+                                    } else if (part[2] == 'focus' || part[2] == 'focusin') {
                                         $(current).on('focusin', function() {
                                             $(current + ' ' + part[3]).css(part[0], part[1]);
                                         });
@@ -152,7 +146,7 @@ function createatom(id) {
                                                     $(this).css(part[0], part[1]);
                                                 }
                                             });
-                                        } else if (part[3] == 'mouseout' || part[3] == 'out'|| part[3] == 'mouseleave') {
+                                        } else if (part[3] == 'mouseout' || part[3] == 'out' || part[3] == 'mouseleave') {
                                             var what = current + ' ' + part[2].replace(/this/, '');
                                             if (part[2].search(/side/) !== -1) {
                                                 what = current;
@@ -168,8 +162,7 @@ function createatom(id) {
                                                     $(this).css(part[0], part[1]);
                                                 }
                                             });
-                                        }
-                                        else if (part[3] == 'mousedown' || part[3] == 'down') {
+                                        } else if (part[3] == 'mousedown' || part[3] == 'down') {
                                             var what = current + ' ' + part[2].replace(/this/, '');
                                             if (part[2].search(/side/) !== -1) {
                                                 what = current;
@@ -185,7 +178,7 @@ function createatom(id) {
                                                     $(this).css(part[0], part[1]);
                                                 }
                                             });
-                                        }  else if (part[3] == 'mouseup' || part[3] == 'up') {
+                                        } else if (part[3] == 'mouseup' || part[3] == 'up') {
                                             var what = current + ' ' + part[2].replace(/this/, '');
                                             if (part[2].search(/side/) !== -1) {
                                                 what = current;
@@ -201,9 +194,7 @@ function createatom(id) {
                                                     $(this).css(part[0], part[1]);
                                                 }
                                             });
-                                        } 
-                                        
-                                        else if (part[3] == 'focus' || part[3] == 'focusin') {
+                                        } else if (part[3] == 'focus' || part[3] == 'focusin') {
                                             var what = current + ' ' + part[2].replace(/this/, '');
                                             if (part[2].search(/side/) !== -1) {
                                                 what = current;
@@ -259,7 +250,7 @@ function createatom(id) {
                         if (part[0] == "hideatom") {
                             break;
                         } else if (part[0] == "ornahelp") {
-                            var helpinfo = '<div id="ornahelp" class="arial bgc_rgb(230,230,230) c_black h_auto w_auto absolute top_0 left_0 right_0 overflow_hidden z-index_1000 p_10px b_2px_dashed_black"><h2  class="textincenter times">Orna - tool for Atomic CSS</h2> <p>Just write CSS like classes:<br><br> <code class=" fs_16px bgc_skyblue p_2px ">class="width_100px color_red color_green_click"</code><br><br> or<br><br> <code class=" fs_16px bgc_#ee0645 p_2px c_white ">class="w_100px c_red c_green_click"</code> </p><h3 class="bgc_white p_4px textincenter times">Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><p>property_value_childtagname_event</p><p><i>Also you can use childtagname or #id or .class</i></p><h3 class="bgc_white p_4px textincenter times">Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover or just over</p><p>mouseout or just out</p><h3 class="bgc_white p_4px textincenter times">Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>fixed - position: fixed</li><br><li>absolute - position: absolute</li><br><li>ornahelp - view the help info</li><br></ol><a href="http://ornaorg.github.io" class="d_block textincenter td_none c_#ee0645">ornaorg.github.io</a><div>';
+                            var helpinfo = '<div id="ornahelp" class="arial bgc_rgb(230,230,230) c_black h_auto w_auto absolute top_0 left_0 right_0 overflow_hidden z-index_1000 p_10px b_2px_dashed_black"><h2  class="textincenter times">OrnaJS - tool for Atomic CSS and Web Framework</h2> <p>Just write CSS like classes:<br><br> <code class=" fs_16px bgc_skyblue p_2px ">class="width_100px color_red color_green_click"</code><br><br> or<br><br> <code class=" fs_16px bgc_#ee0645 p_2px c_white ">class="w_100px c_red c_green_click"</code> </p><h3 class="bgc_white p_4px textincenter times">Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><p>property_value_childtagname_event</p><p><i>Also you can use childtagname or #id or .class</i></p><h3 class="bgc_white p_4px textincenter times">Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover or just over</p><p>mouseout or just out</p><p>mouseup or just up</p><p>mousedown or just down</p><h3 class="bgc_white p_4px textincenter times">Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>fixed - position: fixed</li><br><li>absolute - position: absolute</li><br><li>ornahelp - view the help info</li><br><li>clean, clear - reset CSS properties top, bottom, left and right to 0</li><br><li>orna-btn, sky-btn - decorate the block, like simple button</li><br><li>screen-x, screen-X, screen-y, screen-Y - assign screen width and height as element size</li><br><li>window-x, window-X, window-y, window-Y - assign current window width and height as element size</li><br><li>pointfollow - move elements with a pointer</li><br></ol><a href="http://ornaorg.github.io" class="d_block textincenter td_none c_#ee0645">ornaorg.github.io</a><div>';
                             $(current).append(helpinfo);
                             createatom('#ornahelp');
                         }
@@ -628,9 +619,23 @@ function createatom(id) {
                                 outline: 'none'
                             };
                             addpack(pack);
+                        } else if (part[0] == "sky-btn") {
+                            var pack = {
+                                display: 'inline',
+                                "overflow": 'hidden',
+                                textAlign: 'center',
+                                border: '1px solid',
+                                color: 'black',
+                                backgroundColor: 'skyblue',
+                                padding: '10px',
+                                cursor: 'pointer',
+                                outline: 'none'
+                            };
+                            addpack(pack);
                         }
                         /*--------------Special-classes---------------*/
                         if (part[0] == "pointfollow") {
+                            //$(current).parent().get(0);
                             point_follow();
                             part[0] = 'position';
                             part[1] = 'absolute';
@@ -1118,6 +1123,14 @@ function createatom(id) {
                 $(this).css('background-color', '#ee0645');
             });
         }
+        if ($('.sky-btn').length > 0) {
+            $('.sky-btn').on('mouseover', function() {
+                $(this).css('background-color', 'white');
+            });
+            $('.sky-btn').on('mouseleave', function() {
+                $(this).css('background-color', 'skyblue');
+            });
+        }
     }
     //-Value-update-on-window-resize-
 $(window).resize(function() {
@@ -1127,14 +1140,30 @@ $(window).resize(function() {
     createatom('.window-Y');
 });
 //-Pointer-follower--
-function point_follow() {
+function getCoords(elem) {
+    var box = elem.getBoundingClientRect();
+    return {
+        top: box.top + pageYOffset,
+        left: box.left + pageXOffset
+    };
+}
+
+function point_follow(parent) {
+        if (parent == undefined) {
+            parent = document;
+        }
         $('.pointfollow').on('mousedown', function(event) {
             var thisel = this;
-            $(document).on('mousemove', function(event) {
-                $(thisel).css('left', event.pageX + 'px');
-                $(thisel).css('top', event.pageY + 'px');
+            var shiftX = event.pageX - getCoords(thisel).left;
+            var shiftY = event.pageY - getCoords(thisel).top;
+            $(parent).on('mousemove', function(event) {
+                thisel.ondragstart = function() {
+                    return false;
+                };
+                $(thisel).css('left', event.pageX - shiftX + 'px');
+                $(thisel).css('top', event.pageY - shiftY + 'px');
             });
-            $(document).on('mouseup', function() {
+            $(parent).on('mouseup', function() {
                 $(this).unbind('mousemove');
             });
         });
