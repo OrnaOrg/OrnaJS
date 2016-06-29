@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 3.1.5
+//version ornajs 3.2.0
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
@@ -250,7 +250,7 @@ function createatom(id) {
                         if (part[0] == "hideatom") {
                             break;
                         } else if (part[0] == "ornahelp") {
-                            var helpinfo = '<div id="ornahelp" class="arial bgc_rgb(230,230,230) c_black h_auto w_auto absolute top_0 left_0 right_0 overflow_hidden z-index_1000 p_10px b_2px_dashed_black"><h2  class="textincenter times">OrnaJS - tool for Atomic CSS and Web Framework</h2> <p>Just write CSS like classes:<br><br> <code class=" fs_16px bgc_skyblue p_2px ">class="width_100px color_red color_green_click"</code><br><br> or<br><br> <code class=" fs_16px bgc_#ee0645 p_2px c_white ">class="w_100px c_red c_green_click"</code> </p><h3 class="bgc_white p_4px textincenter times">Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><p>property_value_childtagname_event</p><p><i>Also you can use childtagname or #id or .class</i></p><h3 class="bgc_white p_4px textincenter times">Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover or just over</p><p>mouseout or just out</p><p>mouseup or just up</p><p>mousedown or just down</p><h3 class="bgc_white p_4px textincenter times">Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>fixed - position: fixed</li><br><li>absolute - position: absolute</li><br><li>ornahelp - view the help info</li><br><li>clean, clear - reset CSS properties top, bottom, left and right to 0</li><br><li>orna-btn, sky-btn - decorate the block, like simple button</li><br><li>screen-x, screen-X, screen-y, screen-Y - assign screen width and height as element size</li><br><li>window-x, window-X, window-y, window-Y - assign current window width and height as element size</li><br><li>pointfollow - move elements with a pointer</li><br></ol><a href="http://ornaorg.github.io" class="d_block textincenter td_none c_#ee0645">ornaorg.github.io</a><div>';
+                            var helpinfo = '<div id="ornahelp" class="arial bgc_rgb(230,230,230) c_black h_auto w_auto absolute top_0 left_0 right_0 overflow_hidden z-index_1000 p_10px b_2px_dashed_black"><h2  class="textincenter times">OrnaJS - tool for Atomic CSS and Web Framework</h2> <p>Just write CSS like classes:<br><br> <code class=" fs_16px bgc_skyblue p_2px ">class="width_100px color_red color_green_click"</code><br><br> or<br><br> <code class=" fs_16px bgc_#ee0645 p_2px c_white ">class="w_100px c_red c_green_click"</code> </p><h3 class="bgc_white p_4px textincenter times">Structure</h3><p>property_value</p><p>property_value_event</p><p>property_value_childtagname</p><p>property_value_event_childtagname</p><p>property_value_childtagname_event</p><p><i>Also you can use childtagname or #id or .class</i></p><h3 class="bgc_white p_4px textincenter times">Events</h3><p>click</p><p>focus</p><p>blur</p><p>mouseover or just over</p><p>mouseout or just out</p><p>mouseup or just up</p><p>mousedown or just down</p><h3 class="bgc_white p_4px textincenter times">Special classes</h3><ol><li>Arial, arial - font</li><br><li>Times, TimesNewRoman - font</li><br><li>center - block elements in center by x axis</li><br><li>textincenter - text and inline elements in center by x axis</li><br><li>block - block element</li><br><li>inline - inline element</li><br><li>inlineblock - inline-block element</li><br><li>uppercase - text in uppercase</li><br><li>lowercase - text in lowercase</li><br><li>capitalize - first symbol in uppercase</li><br><li>hideatom - use for hide element from Orna, must be first in class attribute</li><br><li>flexcenter-, flexstart-, flexend-, flexcenter|, flexstart|, flexend| - use for flexbox</li><br><li>fixed - position: fixed</li><br><li>absolute - position: absolute</li><br><li>ornahelp - view the help info</li><br><li>clean, clear - reset CSS properties top, bottom, left and right to 0</li><br><li>orna-btn, sky-btn - decorate the block, like simple button</li><br><li>screen-x, screen-X, screen-y, screen-Y - assign screen width and height as element size</li><br><li>window-x, window-X, window-y, window-Y - assign current window width and height as element size</li><br><li>pointfollow - move elements with a pointer</li><br><li>inTime - put time into element</li><br></ol><a href="http://ornaorg.github.io" class="d_block textincenter td_none c_#ee0645">ornaorg.github.io</a><div>';
                             $(current).append(helpinfo);
                             createatom('#ornahelp');
                         }
@@ -641,570 +641,581 @@ function createatom(id) {
                             part[1] = 'absolute';
                             val = part[1];
                             addstyle(part, val);
-                        } else if (part[0] == "screenX" || part[0] == "screen-X" || part[0] == "screenx" || part[0] == "screen-x") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                        } else if (part[0] == "inTime" || part[0] == "intime") {
+                                inTime();
+                            } else if (part[0] == "screenX" || part[0] == "screen-X" || part[0] == "screenx" || part[0] == "screen-x") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'width';
-                            part[1] = screen.width + 'px';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "screenY" || part[0] == "screen-Y" || part[0] == "screeny" || part[0] == "screen-y") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'width';
+                                part[1] = screen.width + 'px';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "screenY" || part[0] == "screen-Y" || part[0] == "screeny" || part[0] == "screen-y") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'height';
-                            part[1] = screen.height + 'px';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "windowX" || part[0] == "window-X" || part[0] == "windowx" || part[0] == "window-x") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'height';
+                                part[1] = screen.height + 'px';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "windowX" || part[0] == "window-X" || part[0] == "windowx" || part[0] == "window-x") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'width';
-                            part[1] = window.innerWidth + 'px';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "windowY" || part[0] == "window-Y" || part[0] == "windowy" || part[0] == "window-y") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'width';
+                                part[1] = window.innerWidth + 'px';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "windowY" || part[0] == "window-Y" || part[0] == "windowy" || part[0] == "window-y") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'height';
-                            part[1] = window.innerHeight + 'px';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "Arial" || part[0] == "arial") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'height';
+                                part[1] = window.innerHeight + 'px';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "Arial" || part[0] == "arial") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'font-family';
-                            part[1] = 'Arial, sans-serif';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "Times" || part[0] == "times" || part[0] == "TimesNewRoman") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'font-family';
+                                part[1] = 'Arial, sans-serif';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "Times" || part[0] == "times" || part[0] == "TimesNewRoman") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'font-family';
-                            part[1] = '"Times New Roman", serif';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "center") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'font-family';
+                                part[1] = '"Times New Roman", serif';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "center") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'margin';
-                            part[1] = 'auto';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "absolute") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'margin';
+                                part[1] = 'auto';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "absolute") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'position';
-                            part[1] = 'absolute';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "fixed") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'position';
+                                part[1] = 'absolute';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "fixed") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'position';
-                            part[1] = 'fixed';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "relative") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'position';
+                                part[1] = 'fixed';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "relative") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'position';
-                            part[1] = 'relative';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "textincenter") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'position';
+                                part[1] = 'relative';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "textincenter") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'text-align';
-                            part[1] = 'center';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "linear") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'text-align';
+                                part[1] = 'center';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "linear") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'transition';
-                            part[1] = 'all 1s linear 0.2s';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "ease") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'transition';
+                                part[1] = 'all 1s linear 0.2s';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "ease") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'transition';
-                            part[1] = 'all 1s ease 0.2s';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "ease-in") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'transition';
+                                part[1] = 'all 1s ease 0.2s';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "ease-in") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'transition';
-                            part[1] = 'all 1s ease-in 0.2s';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "ease-out") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'transition';
+                                part[1] = 'all 1s ease-in 0.2s';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "ease-out") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'transition';
-                            part[1] = 'all 1s ease-out 0.2s';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "ease-in-out") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'transition';
+                                part[1] = 'all 1s ease-out 0.2s';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "ease-in-out") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'transition';
-                            part[1] = 'all 1s ease-in-out 0.2s';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "uppercase") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'transition';
+                                part[1] = 'all 1s ease-in-out 0.2s';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "uppercase") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'text-transform';
-                            part[1] = 'uppercase';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "lowercase") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'text-transform';
+                                part[1] = 'uppercase';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "lowercase") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'text-transform';
-                            part[1] = 'lowercase';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "capitalize") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'text-transform';
+                                part[1] = 'lowercase';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "capitalize") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'text-transform';
-                            part[1] = 'capitalize';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "inlineblock") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'text-transform';
+                                part[1] = 'capitalize';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "inlineblock") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'inline-block';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "inline") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'inline-block';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "inline") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'inline';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "none") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'inline';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "none") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'none';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "block") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'none';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "block") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'block';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "flexstart-") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'block';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "flexstart-") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'justify-content';
-                            part[1] = 'flex-start';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "flexcenter-") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'justify-content';
+                                part[1] = 'flex-start';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "flexcenter-") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'justify-content';
-                            part[1] = 'center';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "flexend-") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'justify-content';
+                                part[1] = 'center';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "flexend-") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'justify-content';
-                            part[1] = 'flex-end';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "spacebetween") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'justify-content';
+                                part[1] = 'flex-end';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "spacebetween") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'justify-content';
-                            part[1] = 'space-between';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "spacearound") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'justify-content';
+                                part[1] = 'space-between';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "spacearound") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'justify-content';
-                            part[1] = 'space-around';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "flexstart|") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'justify-content';
+                                part[1] = 'space-around';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "flexstart|") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'align-items';
-                            part[1] = 'flex-start';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "flexcenter|") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'align-items';
+                                part[1] = 'flex-start';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "flexcenter|") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'align-items';
-                            part[1] = 'center';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "flexend|") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'align-items';
+                                part[1] = 'center';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "flexend|") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'align-items';
-                            part[1] = 'flex-end';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "baseline") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'align-items';
+                                part[1] = 'flex-end';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "baseline") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
-                            }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'align-items';
-                            part[1] = 'baseline';
-                            val = part[1];
-                            addstyle(part, val);
-                        } else if (part[0] == "stretch") {
-                            if (part[1] !== undefined) {
-                                if (part[2] !== undefined) {
-                                    part[3] = part[2];
-                                    part[2] = part[1];
-                                } else {
-                                    part[2] = part[1];
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'align-items';
+                                part[1] = 'baseline';
+                                val = part[1];
+                                addstyle(part, val);
+                            } else if (part[0] == "stretch") {
+                                if (part[1] !== undefined) {
+                                    if (part[2] !== undefined) {
+                                        part[3] = part[2];
+                                        part[2] = part[1];
+                                    } else {
+                                        part[2] = part[1];
+                                    }
                                 }
+                                part[0] = 'display';
+                                part[1] = 'flex';
+                                val = part[1];
+                                addstyle(part, val);
+                                part[0] = 'align-items';
+                                part[1] = 'stretch';
+                                val = part[1];
+                                addstyle(part, val);
                             }
-                            part[0] = 'display';
-                            part[1] = 'flex';
-                            val = part[1];
-                            addstyle(part, val);
-                            part[0] = 'align-items';
-                            part[1] = 'stretch';
-                            val = part[1];
-                            addstyle(part, val);
                         }
                     }
                 }
+                //--Add-move-(to-live)-
+                if ($('.orna-btn').length > 0) {
+                    $('.orna-btn').on('mouseover', function() {
+                        $(this).css('background-color', 'rgb(83, 2, 24)');
+                    });
+                    $('.orna-btn').on('mouseleave', function() {
+                        $(this).css('background-color', '#ee0645');
+                    });
+                }
+                if ($('.sky-btn').length > 0) {
+                    $('.sky-btn').on('mouseover', function() {
+                        $(this).css('background-color', 'white');
+                    });
+                    $('.sky-btn').on('mouseleave', function() {
+                        $(this).css('background-color', 'skyblue');
+                    });
+                }
             }
-            //--Add-move-(to-live)-
-        if ($('.orna-btn').length > 0) {
-            $('.orna-btn').on('mouseover', function() {
-                $(this).css('background-color', 'rgb(83, 2, 24)');
-            });
-            $('.orna-btn').on('mouseleave', function() {
-                $(this).css('background-color', '#ee0645');
-            });
-        }
-        if ($('.sky-btn').length > 0) {
-            $('.sky-btn').on('mouseover', function() {
-                $(this).css('background-color', 'white');
-            });
-            $('.sky-btn').on('mouseleave', function() {
-                $(this).css('background-color', 'skyblue');
-            });
-        }
-    }
-    //-Value-update-on-window-resize-
-$(window).resize(function() {
-    createatom('.window-x');
-    createatom('.window-y');
-    createatom('.window-X');
-    createatom('.window-Y');
-});
-//-Pointer-follower--
-function getCoords(elem) {
-    var box = elem.getBoundingClientRect();
-    return {
-        top: box.top + pageYOffset,
-        left: box.left + pageXOffset
-    };
-}
-
-function point_follow(parent) {
-        if (parent == undefined) {
-            parent = document;
-        }
-        $('.pointfollow').on('mousedown', function(event) {
-            var thisel = this;
-            var shiftX = event.pageX - getCoords(thisel).left;
-            var shiftY = event.pageY - getCoords(thisel).top;
-            $(parent).on('mousemove', function(event) {
-                thisel.ondragstart = function() {
-                    return false;
-                };
-                $(thisel).css('left', event.pageX - shiftX + 'px');
-                $(thisel).css('top', event.pageY - shiftY + 'px');
-            });
-            $(parent).on('mouseup', function() {
-                $(this).unbind('mousemove');
-            });
+            //-Value-update-on-window-resize-
+        $(window).resize(function() {
+            createatom('.window-x');
+            createatom('.window-y');
+            createatom('.window-X');
+            createatom('.window-Y');
         });
-    }
-    //------------------------------------------
-function findmin(arr) {
-    var min;
-    min = arr[0];
-    for (var i = 0; i !== arr.length; i++) {
-        if (min > arr[i]) {
-            min = arr[i];
+        //-Pointer-follower--
+        function getCoords(elem) {
+            var box = elem.getBoundingClientRect();
+            return {
+                top: box.top + pageYOffset,
+                left: box.left + pageXOffset
+            };
         }
-    }
-    return min;
-}
 
-function findmax(arr) {
-    var min;
-    min = arr[0];
-    for (var i = 0; i !== arr.length; i++) {
-        if (min < arr[i]) {
-            min = arr[i];
-        }
-    }
-    return min;
-}
-
-function checkit(elem, reg, color1, color2, length) {
-    $(elem).on('change', function() {
-        if ($(this).val().search(reg) != -1) {
-            $(this).css('border-color', color1);
-            $(this).val('');
-            $(this).attr('placeholder', 'Only numbers!');
-        } else if ($(this).val().length == 0) {
-            $(this).css('border-color', color1);
-            $(this).val('');
-            $(this).attr('placeholder', 'Empty!');
-        } else {
-            if ($(this).val().length == length) {
-                $(this).css('border-color', color2);
+        function point_follow(parent) {
+                if (parent == undefined) {
+                    parent = document;
+                }
+                $('.pointfollow').on('mousedown', function(event) {
+                    var thisel = this;
+                    var shiftX = event.pageX - getCoords(thisel).left;
+                    var shiftY = event.pageY - getCoords(thisel).top;
+                    $(parent).on('mousemove', function(event) {
+                        thisel.ondragstart = function() {
+                            return false;
+                        };
+                        $(thisel).css('left', event.pageX - shiftX + 'px');
+                        $(thisel).css('top', event.pageY - shiftY + 'px');
+                    });
+                    $(parent).on('mouseup', function() {
+                        $(this).unbind('mousemove');
+                    });
+                });
             }
+            //------------------------------------------
+        function findmin(arr) {
+            var min;
+            min = arr[0];
+            for (var i = 0; i !== arr.length; i++) {
+                if (min > arr[i]) {
+                    min = arr[i];
+                }
+            }
+            return min;
         }
-    });
-}
+
+        function findmax(arr) {
+            var min;
+            min = arr[0];
+            for (var i = 0; i !== arr.length; i++) {
+                if (min < arr[i]) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+
+        function checkit(elem, reg, color1, color2, length) {
+            $(elem).on('change', function() {
+                if ($(this).val().search(reg) != -1) {
+                    $(this).css('border-color', color1);
+                    $(this).val('');
+                    $(this).attr('placeholder', 'Only numbers!');
+                } else if ($(this).val().length == 0) {
+                    $(this).css('border-color', color1);
+                    $(this).val('');
+                    $(this).attr('placeholder', 'Empty!');
+                } else {
+                    if ($(this).val().length == length) {
+                        $(this).css('border-color', color2);
+                    }
+                }
+            });
+        }
+
+        function inTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            $('.inTime').text(hours + ':' + minutes + ':' + seconds);
+            setInterval(inTime, 1000);
+        }
