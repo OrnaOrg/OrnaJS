@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 3.2.0
+//version ornajs 3.2.5
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
@@ -1193,12 +1193,12 @@ function createatom(id) {
             return min;
         }
 
-        function checkit(elem, reg, color1, color2, length) {
+           function checkit(elem, reg, color1, color2, length) {
             $(elem).on('change', function() {
                 if ($(this).val().search(reg) != -1) {
                     $(this).css('border-color', color1);
                     $(this).val('');
-                    $(this).attr('placeholder', 'Only numbers!');
+                    $(this).attr('placeholder', 'Invalid value!');
                 } else if ($(this).val().length == 0) {
                     $(this).css('border-color', color1);
                     $(this).val('');
@@ -1207,6 +1207,7 @@ function createatom(id) {
                     if ($(this).val().length == length) {
                         $(this).css('border-color', color2);
                     }
+                           $(this).css('border-color', color2);
                 }
             });
         }
