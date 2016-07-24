@@ -19,7 +19,7 @@ Orna is good tool that atomize your css. It's parser and web framework.
 **CDN**
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ornajs/3.1.1/orna.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ornajs/3.2.5/orna.js"></script>
     
 2.Then you can write CSS properties like classes in the class attribute
 

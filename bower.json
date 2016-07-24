@@ -1,6 +1,6 @@
 {
   "name": "OrnaJS",
-  "version": "3.2.5",
+  "version": "3.3.0",
   "description": "OrnaJS is a tool(Web Framework) for creation Atomic CSS. Orna lightweight, clear and easy. It works with jQuery.",
   "main": "orna.js",
   "authors": [
