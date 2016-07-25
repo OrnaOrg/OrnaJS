@@ -1,6 +1,6 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 3.3.0
+//version ornajs 3.3.5
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
 $(document).ready(function() {
@@ -92,7 +92,22 @@ function createatom(id) {
                                                 $(part[2].replace(/side/, '')).css(part[0], part[1]);
                                             } else {
                                                 if (part[2].search(/reset/) == -1) {
-                                                    $(current + ' ' + part[2]).css(part[0], part[1]);
+                                                    if (part[2].search(/set/) == -1) {
+                                                        $(current + ' ' + part[2]).css(part[0], part[1]);
+                                                    } else {
+                                                        var upoint = part[2].replace(/set/, '');
+                                                        upoint = upoint.replace(/px/, '');
+                                                        if (window.innerWidth >= upoint) {
+                                                            $(current).css(part[0], part[1]);
+                                                        }
+                                                        $(window).resize(function() {
+                                                            // alert(upoint);
+                                                            // alert(window.innerWidth);
+                                                            if (window.innerWidth >= upoint) {
+                                                                $(current).css(part[0], part[1]);
+                                                            }
+                                                        });
+                                                    }
                                                 } else {
                                                     var bpoint = part[2].replace(/reset/, '');
                                                     bpoint = bpoint.replace(/px/, '');
@@ -107,7 +122,9 @@ function createatom(id) {
                                                         if (window.innerWidth <= bpoint) {
                                                             $(current).css(part[0], part[1]);
                                                         } else {
-                                                            $(current).css(part[0], curPar);
+                                                            if (part[0] !== 'w' && part[0] !== 'width') {
+                                                                $(current).css(part[0], curPar);
+                                                            }
                                                         }
                                                     });
                                                 }
