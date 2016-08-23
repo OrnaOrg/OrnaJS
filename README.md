@@ -44,8 +44,15 @@ Orna is good tool that atomize your css. It's parser and web framework.
    "set", like (height_200px_reset600px). Prefix reset if low, set if
    more!
  - Write Orna classes without whitespace. Whitespace used, like
-   separator between classes.
+   separator between classes. 
 
+
+
+    
+    <div class="ff_Times New Roman">Hello</div> //Wrong, can use only fonts without whitespace in name.
+    <div class="ff_Arial">Hello</div> //Right
+    
+    
 [http://ornaorg.github.io](http://ornaorg.github.io)
 
 **Bower:** bower install OrnaJS
