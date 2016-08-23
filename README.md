@@ -28,6 +28,24 @@ Orna is good tool that atomize your css. It's parser and web framework.
     </div>
     
 
+
+
+
+ - Always take the latest version!
+ - The priority in OrnaJS added to class that was written last(final).
+   Like class="height_100px height_200px" the height of element will be
+   200px!
+ - You can use abbreviated name, molecules with events and inheritance,
+   but not all!
+ - You can use prefix "this", like (height_200px_thisdiv_click), for current element, like hover in CSS!
+ - If you want decorate outside element not a child, use prefix "side",
+   like (height_200px_side#id_click)!
+ - If you want to create breakpoint, use prefix "reset" as 3 part or
+   "set", like (height_200px_reset600px). Prefix reset if low, set if
+   more!
+ - Write Orna classes without whitespace. Whitespace used, like
+   separator between classes.
+
 [http://ornaorg.github.io](http://ornaorg.github.io)
 
 **Bower:** bower install OrnaJS
