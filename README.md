@@ -27,9 +27,13 @@ Orna is good tool that atomize your css. It's parser and web framework.
     Hello! If this block black and string is white it means that Orna is ready!
     </div>
     
+    
 
+3.Write Orna classes without whitespace. Whitespace used, like
+separator between classes. 
 
-
+    <div class="ff_Times New Roman">Hello</div> //Wrong, can use only fonts without whitespace in name.
+    <div class="ff_Arial">Hello</div> //Right 
 
  - Always take the latest version!
  - The priority in OrnaJS added to class that was written last(final).
@@ -43,16 +47,9 @@ Orna is good tool that atomize your css. It's parser and web framework.
  - If you want to create breakpoint, use prefix "reset" as 3 part or
    "set", like (height_200px_reset600px). Prefix reset if low, set if
    more!
- - Write Orna classes without whitespace. Whitespace used, like
-   separator between classes. 
+ 
 
 
-
-    
-    <div class="ff_Times New Roman">Hello</div> //Wrong, can use only fonts without whitespace in name.
-    <div class="ff_Arial">Hello</div> //Right
-    
-    
 [http://ornaorg.github.io](http://ornaorg.github.io)
 
 **Bower:** bower install OrnaJS
