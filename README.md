@@ -44,7 +44,7 @@ separator between classes.
  - You can use prefix "this", like (height_200px_thisdiv_click), for current element, like hover in CSS!
  - If you want decorate outside element not a child, use prefix "side",
    like (height_200px_side#id_click)!
- - If you want to create breakpoint, use prefix "reset" as 3 part or
+ - If you want to create ***breakpoint***, use prefix "reset" as 3 part or
    "set", like (height_200px_reset600px). Prefix "reset" works if size low than width, "set" works when
    more than width!
  
