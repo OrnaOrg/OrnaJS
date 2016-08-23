@@ -45,8 +45,8 @@ separator between classes.
  - If you want decorate outside element not a child, use prefix "side",
    like (height_200px_side#id_click)!
  - If you want to create breakpoint, use prefix "reset" as 3 part or
-   "set", like (height_200px_reset600px). Prefix reset if low, set if
-   more!
+   "set", like (height_200px_reset600px). Prefix "reset" works if size low than width, "set" works when
+   more than width!
  
 
 
