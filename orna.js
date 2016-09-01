@@ -1,8 +1,9 @@
 //https://github.com/OrnaOrg/OrnaJS
 //http://ornaorg.github.io
-//version ornajs 3.3.5
+//version ornajs 3.3.7
 //bower install OrnaJS
 /*------------------createatom();----Main-function---------------------*/
+var orna_separator = "_";
 $(document).ready(function() {
     createatom();
 });
@@ -42,7 +43,7 @@ function createatom(id) {
                 if (attr !== undefined) {
                     style = attr.split(' ');
                     for (var i = 0; i !== style.length; i++) {
-                        var part = style[i].split('_');
+                        var part = style[i].split(orna_separator);
                         var prop = part[0];
                         var val = part[1];
                         //---------------------------------------
