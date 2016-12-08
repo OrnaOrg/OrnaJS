@@ -341,7 +341,7 @@ See also :first or :last!<br>(bgc_red_div:first_click, bgc_red_thisdiv:first_cli
     <div class="background-color_rgb(245,245,245) ">
        <br>
       <br>
-      <span class="font-size_20px arial">OrnaJS functions for Atomize</span><br><br>
+      <span class="font-size_20px arial">OrnaJS functions</span><br><br>
 
 <div class="text-align_left">
   <ol class="margin_auto width_400px color_#ee0645 list-style_none">
@@ -349,10 +349,20 @@ See also :first or :last!<br>(bgc_red_div:first_click, bgc_red_thisdiv:first_cli
 
        Looks Like:</span> createatom('<span class="color_black">#id</span>');</li><br>
       <li><span class="color_black"><span class="c_rgb(83,2,24)">findmin(), findmax();</span> - functions, which find the minimal and maximal value in numeric array.<br><br>
-        <span class="color_#ee0645">findmin(array);</span>
+        <span class="color_#ee0645">findmin([1,2,3]);</span> //1
         </li><br>
       <li><span class="color_black"><span class="c_rgb(83,2,24)">checkit();</span> - function, that check input field. checkit(element, regexp, color1, color2, length);
         <br> <br> <span class="color_#ee0645">checkit("input", /[a-zA-Zа-яА-Я]+/, "red", "blue", 13);</span></li><br>
+          <li><span class="color_black"><span class="c_rgb(83,2,24)">getMiddle();</span> - function return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.
+        <br> <br> <span class="color_#ee0645">getMiddle("string"); getMiddle(123);</span> //ri, //2</li><br>         
+         <li><span class="color_black"><span class="c_rgb(83,2,24)">stray();</span> - function implement the method stray which accepts such array, and returns that single different number.
+        <br> <br> <span class="color_#ee0645">stray([2,2,2,1,2,2,2]);</span> //1</li><br> 
+        <li><span class="color_black"><span class="c_rgb(83,2,24)">flatten();</span> - function that flattens an Array of Array objects into a flat Array.
+        <br> <br> <span class="color_#ee0645">flatten([['Or'],['na']]);</span> //Or,na</li><br>
+        <li><span class="color_black"><span class="c_rgb(83,2,24)">isIsogram();</span> - An isogram is a word that has no repeating letters, consecutive or non-consecutive. This function determines whether a string that contains only letters is an isogram. 
+        <br> <br> <span class="color_#ee0645">isIsogram('Popov');</span> //False</li><br>    
+         <li><span class="color_black"><span class="c_rgb(83,2,24)">capitals();</span> - function return an ordered list containing the indexes of all capital letters in the string.
+        <br> <br> <span class="color_#ee0645">capitals('DiMa');</span> //0,2</li><br>
        </ol><br>
 
     </div>
